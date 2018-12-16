@@ -55,7 +55,7 @@ function themeConfig($form) {
     $Links->input->setAttribute('style', 'height:100px;white-space:nowrap;');
     $form->addInput($Links);
 
-    $innerlinkshow = new Typecho_Widget_Helper_Form_Element_Textarea('innerlinkshow', NULL, NULL, _t('要在内页（链接页面）显示的链接分类（支持多分类，请用英文逗号“,”分隔）【 必填 】'), _t(''));
+    $innerlinkshow = new Typecho_Widget_Helper_Form_Element_Textarea('innerlinkshow', NULL, NULL, _t('要在内页（链接页面）显示的链接分类（支持多分类，一行一个）【 必填 】'), _t(''));
     $innerlinkshow->input->setAttribute('style', 'height:100px;white-space:nowrap;');
     $form->addInput($innerlinkshow);
 
@@ -251,7 +251,7 @@ function image_class_replace($content)
             '<img$1 data-original="$2$3"$5 class="lazyload" src="https://res.sunxyu.cn/images/loading.gif">', $content);
         $content = preg_replace('#<a(.*?) href="([^"]*/)?(([^"/]*)\.[^"]*)"(.*?)>#',
             '<a$1 href="$2$3"$5 rel="external nofollow" target="_blank">', $content);
-        $content = preg_replace('/(\[addimg\])(.*?)<a href="(.*?),(.*?),(.*?)(\[\/addimg\])/i','<a data-fancybox="gallery" href="$3" data-caption="$5">$5</a>', $content);
+        $content = preg_replace('/\[addimg\](http:|https:)(.*?)(.jpg|.png|.jpeg|.png),(.*?)\[\/addimg\]/i','<a data-fancybox="gallery" href="$1$2$3" data-caption="$4">$4</a>', $content);
         $content = preg_replace('/(\[addvideo\])(http:|https:)(.*?),(.*?),(.*?),(.*?)(\[\/addvideo\])/i','<a data-fancybox data-width="$5" data-height="$6" href="$2$3" data-caption="$4">$4</a>', $content);
         $content = preg_replace('/(\[addvideo2\])(http:|https:)(.*?),<img data-original="(http:|https:)(.*?)" alt="(.*?)" (.*?),(.*?),(.*?)(\[\/addvideo2\])/i','<a data-fancybox data-width="$8" data-height="$9" href="$2$3" data-caption="$6"><img data-original="$4$5" class="lazyload" src="https://res.sunxyu.cn/images/loading.gif" alt="$6" title="$6"></a>', $content);
         $content = preg_replace('/(\[addvideo3\])(http:|https:)(.*?),(.*?),<a href="(http:|https:)(.*?),(.*?),(.*?)" (.*?)(\[\/addvideo3\])/i','<a data-fancybox data-width="$7" data-height="$8" href="$2$3" data-caption="$4"><img data-original="$5$6" class="lazyload" src="https://res.sunxyu.cn/images/loading.gif" alt="$4" title="$4"></a>', $content);
