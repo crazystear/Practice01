@@ -16,11 +16,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <div class="inside">
                 <div id="content" class="content">
                     <?php while($this->next()): ?>
-                        <?php include("post_common.php"); ?>
+                        <?php
+                            $getCate = $this->category;
+                            if ($getCate != 'gallery') {
+                                include("post_common.php");
+                            }
+                        ?>
                     <?php endwhile; ?>
-<!-- <?php $this->pageNav('上一页', 'Loading...', 0, '..', array('wrapClass' => 'page-navigator ajaxload')); ?> -->
                 </div>
-
                 <div id="ajaxloadpost" style="padding: 0 10px;">
                     <?php $this->pageLink('下一页','next'); ?>
                 </div>

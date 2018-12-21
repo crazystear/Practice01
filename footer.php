@@ -4,6 +4,8 @@
 <script type="text/javascript" src="https://cdn.staticfile.org/masonry/4.2.2/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/9.13.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <!-- 图片懒加载结合masonry -->
 <script type="text/javascript">
 $(function() {    
@@ -94,98 +96,33 @@ for(;i<navs.length;i++){
     </div>
 </div>
 <!-- 无限加载文章分布列表 -->
-<!-- <script>
-var isbool = true;
-$(window).scroll(function() {
-    if (isbool && $('.ajaxload .next a').attr("href") && ($(this).scrollTop() + $(window).height() + 20) >= $(document).height()) {
-        isbool = false;
-        aln();
-$(function() {    
-    $(".lazyload").lazyload({
-        effect: 'fadeIn',
-        load : f_masonry,
-    });
-});
-    }
-});
-
-function al() {
-    $('.ajaxload li[class!="next"]').remove();
-    $('.ajaxload .next a').click(function() {
-        if (isbool) {
-            aln();
-            $(function() {    
-    $(".lazyload").lazyload({
-        effect: 'fadeIn',
-        load : f_masonry,
-    });
-});
-        }
-        return false
-    })
-}
-al();
-
-function aln() {
-    var a = '.ajaxload .next a',
-        b = $(a).attr("href");
-    $(a).addClass('loading').text("loading...");
-    if (b) {
-        $.ajax({
-            url: b,
-            error: function() {
-                alert('oopos...');
-                $(a).removeAttr("class").text("load more...");
-                return false
-            },
-            success: function(d) {
-                var c = $(d).find("#content .main"),
-                    e = $(d).find(a).attr("href");
-                if (c) {
-                    $('.ajaxload').before(c)
-                };
-                $(a).removeAttr("class");
-                if (e) {
-                    $(a).text("loading...").attr("href", e)
-                } else {
-                    $(a).remove();
-                    $('.ajaxload .next').text('no more posts...')
-                }
-                if ($('.protected', d).length) {
-                    $('.protected *').unbind();
-                    ap()
-                }
-                isbool = true;
-                return false
-            }
-        })
-    }
-}
-</script> -->
 <?php if(!($this->is('post') || $this->is('page'))): ?>
 <script src="https://cdn.staticfile.org/jquery-infinitescroll/3.0.5/infinite-scroll.pkgd.min.js"></script>
 <script type="text/javascript">
-    var $grid = $('.content').masonry({
+    if ($('a').is('.next')) {
+        var $grid = $('.content').masonry({
         itemSelector: '.main2',
         isAnimated: true,
         columnWidth: 5
-    });
-    var msnry = $grid.data('masonry');
-    $grid.infiniteScroll({
-      path: '.next',
-      append: '.main2',
-      hideNav: '#ajaxloadpost',
-      outlayer: msnry,
-    });
-    $grid.on('append.infiniteScroll', function( event, response, path) {
-      $(".lazyload").lazyload({
-        load : f_masonry,
-    });
-    });
-    $grid.on( 'last.infiniteScroll', function( event, response, path ) {
-      document.getElementById('showtext').innerHTML = '<p>已经到底啦！</p>';
-    });
+        });
+        var msnry = $grid.data('masonry');
+        $grid.infiniteScroll({
+          path: '.next',
+          append: '.main2',
+          hideNav: '#ajaxloadpost',
+          outlayer: msnry,
+        });
+        $grid.on('append.infiniteScroll', function( event, response, path) {
+          $(".lazyload").lazyload({
+            load : f_masonry,
+        });
+        });
+        $grid.on( 'last.infiniteScroll', function( event, response, path ) {
+          document.getElementById('showtext').innerHTML = '<p>已经到底啦！</p>';
+        });
+    }
 </script>
+
 <?php endif; ?>
 <script type="text/javascript" src="<?php $this->options->themeUrl('/js/practice01.js'); ?>"></script>
 </body>

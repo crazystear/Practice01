@@ -39,7 +39,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 									->limit(40)
 									);
 									$mostactive = '';
-									$avatar_path = 'https://www.gravatar.com/avatar/';
+									$avatar_path = 'https://cdn.v2ex.com/gravatar/';
 									foreach ($counts as $count) {
 									  $avatar = $avatar_path . md5(strtolower($count['mail'])) . '?s=65';
 									  $c_url = $count['url']; if ( !$c_url ) $c_url = Helper::options()->siteUrl;

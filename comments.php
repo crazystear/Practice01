@@ -27,8 +27,19 @@ $comments->alt(' comment-odd', ' comment-even');
 echo $commentClass;
 ?>">
 <div id="<?php $comments->theId(); ?>">
+<?php
+    $host = 'https://cdn.v2ex.com';
+    $url = '/gravatar/';
+    $size = '40';
+    $rating = Helper::options()->commentsAvatarRating;
+    $hash = md5(strtolower($comments->mail));
+    $email = strtolower($comments->mail);
+    $sjtx = Typecho_Widget::widget('Widget_Options')->motx; 
+    $avatar = $host . $url . $hash . '?s=' . $size . '&r=' . $rating . '&d='.$sjtx;
+?>
     <div class="comment-author">
-            <?php $comments->gravatar('40', ''); ?>
+            <img class="avatar"
+     src="<?php echo $avatar ?>" alt="<?php echo $comments->author; ?>" width="<?php echo $size ?>" height="<?php echo $size ?>" />
             <cite class="fn"><?php echo $author; ?></cite>
         </div>
         <div class="comment-meta">
@@ -41,7 +52,6 @@ echo $commentClass;
                 <?php $cos = preg_replace('#</?[p|P][^>]*>#','',$comments->content);echo $cos;?>
             </span>
         </div>
-
     </div>
 <?php if ($comments->children) { ?>
     <div class="comment-children">
@@ -89,12 +99,12 @@ echo $commentClass;
                     <input onblur="showAva(this.value)" placeholder="邮箱 *" type="email" name="mail" id="mail" class="text" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> />
                 </p>
                 <p>
-                    <input placeholder="http://" type="url" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
+                    <input placeholder="http://" type="url" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>" onfocus="getUrl()" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
                 </p>
                 <?php endif; ?>
             </div>
             <div class="post_comment_submit">
-                <p id="showAvatar"><img style="width: 80px;" src="https://sunxyu.cn/img/avatar.jpg"></p>
+                <p id="showAvatar"><img style="width: 80px;" src="https://cdn.v2ex.com/gravatar/?s=80"></p>
                 <p>
                     <button type="submit" class="submit"><?php _e('提交评论'); ?></button>
                 </p>
@@ -123,5 +133,11 @@ echo $commentClass;
         xhr.open('get', '../usr/themes/practice01/show_avatar.php?n1='+str, true);
         //正式发送请求
         xhr.send();
+    }
+    function getUrl() {
+        var getUrl = document.getElementById("url").value;
+        if (getUrl == "") {
+            document.getElementById("url").value = "http://";
+        }
     }
 </script>

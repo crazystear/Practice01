@@ -262,6 +262,7 @@ function image_class_replace($content)
         if ($ca > 1) {
             $content = preg_replace('/\<\/a\>\<br\>\<a/i', '</a><a', $content);
         }
+        $content = preg_replace('/\[record\](.*?)\<br\>(.*?)\[\/record]/i','<span class="postRecord"><span style="background:#fff;padding:0 5px;">$1</span></span><span class="recordBody">$2</span>',$content);
         return $content;
     }
 ?>

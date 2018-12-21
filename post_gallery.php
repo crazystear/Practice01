@@ -18,10 +18,12 @@
                 </div>
                 <div style="margin-bottom: 20px;">
                     <p class="post_meta">
+                        <span><a title="back to top" href="#0" class="cd-top" style="color: rgba(77, 136, 255,.9);display: inline-block;background: #f1f1f1;"><i class="fa fa-arrow-up" aria-hidden="true"></i></a></span>
                         <span class="head_meta noneformo">Title&nbsp;:&nbsp;<?php $this->title() ?></span>
                         <span class="head_meta noneformo">Category&nbsp;:&nbsp;<?php $this->category(',', false); ?></span>
                         <span class="head_meta">Views&nbsp;:&nbsp;<?php get_post_view($this) ?></span>
                         <span>Posted on&nbsp;:&nbsp;<time style="font-size: 12px;" datetime="<?php $this->date('Y-m-d'); ?>"><?php $this->date(); ?></time></span>
+                        <span><a title="back to top" href="#0" class="cd-top" style="color: rgba(77, 136, 255,.9);display: inline-block;background: #f1f1f1;"><i class="fa fa-arrow-up" aria-hidden="true"></i></a></span>
                     </p>
                 </div>
                 <div class="gallery_comment">

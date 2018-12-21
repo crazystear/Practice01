@@ -99,5 +99,19 @@ $(document).ready(function() {
         var randcolor = parseInt(Math.random() * (x - y + 1) +y);
         $(this).addClass("randomlinksc" + randcolor);
     });
+    var randomlinkcolor2 = $(".box .post");
+    randomlinkcolor2.each(function() {
+        var x2 = 20;
+        var y2 = 0;
+        var randcolor2 = parseInt(Math.random() * (x2 - y2 + 1) +y2);
+        $(this).addClass("randomlinkscg" + randcolor2);
+    });
+    var randomlinkcolor3 = $(".setback");
+    randomlinkcolor3.each(function() {
+        var x3 = 20;
+        var y3 = 0;
+        var randcolor3 = parseInt(Math.random() * (x3 - y3 + 1) +y3);
+        $(this).addClass("randomlinkscg" + randcolor3);
+    });
 });
 //end-------------------------------------------------------------------------------
