@@ -86,7 +86,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 .author3 > div {
     display: flex;
     align-items: flex-end;
-    padding: 0px 15px;
+    padding: 0px 10px;
 }
 .author3 p {
     padding: 3px 0px;
@@ -141,7 +141,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                             <div class="content1 setback">
                                                 <div class="author3">
                                                     <div>
-                                                        <p><i style="font-size:12px;" class="fa fa-user" aria-hidden="true"></i>&nbsp;<?php $this->author(); ?>&nbsp;&nbsp;</p>
                                                         <p><i style="font-size:12px;" class="fa fa-eye" aria-hidden="true"></i>&nbsp;<?php get_post_view($this) ?>&nbsp;&nbsp;</p>
                                                         <p><i style="font-size:12px;" class="fa fa-comment" aria-hidden="true"></i>&nbsp;<?php $this->commentsNum('0','1','%d'); ?></p>
                                                     </div>

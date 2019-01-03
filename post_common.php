@@ -22,7 +22,7 @@ Html;
                                         echo '<a style="margin-left:2px;background:rgba(0, 55, 125, 0.6);padding:10px 5px;">'.$countInnerImg.'P</a>';
                                     ?>
                                     </div>
-                                    <div class="entry2"><p><a <?php if(!($this->fields->posttitlecolor == '')): ?> style="color:<?php $this->fields->posttitlecolor(); ?>" <?php endif; ?> href="<?php $this->permalink() ?>"><i style="font-size:12px;" class="fa fa-quote-left" aria-hidden="true"></i>&nbsp;<?php $this->title() ?>&nbsp;<i style="font-size:12px;" class="fa fa-quote-right" aria-hidden="true"></i>&nbsp;<?php $this->sticky(); ?></a></p>
+                                    <div class="entry2"><p><a <?php if(!($this->fields->posttitlecolor == '')): ?> style="color:<?php $this->fields->posttitlecolor(); ?>" <?php endif; ?> href="<?php $this->permalink() ?>"><i style="font-size:12px;" class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;<?php $this->title() ?>&nbsp;<?php $this->sticky(); ?></a></p>
                                     </div>
                                     <div class="author2">
                                         <div>
@@ -50,7 +50,15 @@ echo <<<Html
 Html;
 ?>"></a></div>
 <?php }} ?>
-                                    <div class="entry"><p><a <?php if(!($this->fields->posttitlecolor == '')): ?> style="color:<?php $this->fields->posttitlecolor(); ?>" <?php endif; ?> href="<?php $this->permalink() ?>"><i style="font-size:12px;" class="fa fa-quote-left" aria-hidden="true"></i>&nbsp;<?php $this->title() ?>&nbsp;<i style="font-size:12px;" class="fa fa-quote-right" aria-hidden="true"></i>&nbsp;<?php $this->sticky(); ?></a></p></div>
+                                    <div class="entry"><p><a <?php if(!($this->fields->posttitlecolor == '')): ?> style="color:<?php $this->fields->posttitlecolor(); ?>" <?php endif; ?> href="<?php $this->permalink() ?>">
+                                        <?php if(!($this->fields->aplayerurl == '')): ?>
+                                            <i style="font-size:12px;" class="fa fa-music" aria-hidden="true"></i>
+                                        <?php elseif(preg_match("/\bmp4\b/i",$this->content)): ?>
+                                            <i style="font-size:12px;" class="fa fa-video-camera" aria-hidden="true"></i>
+                                        <?php else: ?>
+                                            <i style="font-size:12px;" class="fa fa-book" aria-hidden="true"></i>
+                                        <?php endif; ?>
+                                        &nbsp;<?php $this->title() ?>&nbsp;<?php $this->sticky(); ?></a></p></div>
                                     <div class="expert"><p><?php $this->excerpt(35, ' ...'); ?></p></div>
                                     <div class="cate"><p><i style="font-size:12px;" class="fa fa-clone" aria-hidden="true"></i>&nbsp;<?php $this->category(',', true); ?></p></div>
                                     <div class="author">

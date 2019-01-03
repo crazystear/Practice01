@@ -21,7 +21,7 @@ function f_masonry() {
     $('#content').masonry({
         itemSelector: '.main2',
         isAnimated: true,
-        columnWidth: 5,
+        // columnWidth: 5,
         });
     }
 </script>
@@ -103,7 +103,7 @@ for(;i<navs.length;i++){
         var $grid = $('.content').masonry({
         itemSelector: '.main2',
         isAnimated: true,
-        columnWidth: 5
+        // columnWidth: 5
         });
         var msnry = $grid.data('masonry');
         $grid.infiniteScroll({

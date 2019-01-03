@@ -539,7 +539,7 @@ a.next {
 }
 .desc p {
 	padding: 0px 20px 30px 20px;
-	font-size: 13px;
+	font-size: 12px;
 }
 .newcomments, .newposts {
 	background: #fff;
@@ -822,7 +822,7 @@ a.next {
 }
 .post_body p {
 	line-height: 22px;
-	padding: 5px 10px;
+	padding: 7px 10px;
 }
 .post_body p strong {
 	color: #ff0000;
@@ -1444,6 +1444,10 @@ p#showAvatar {
 	.post_entry a {
 		font-size: 14px;
 	}
+	.gallery_item, .main_gallery {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
 }
 @media screen and (min-width: 768px) {
 	.site-wrap, .slide-img, .sentences {
@@ -1482,8 +1486,11 @@ p#showAvatar {
 		top: 40px;
 	}
 	.gallery_item, .main_gallery {
-		flex: 0 0 50%;
-		max-width: 50%;
+		flex: 0 0 33.3333%;
+		max-width: 33.3333%;
+	}
+	.headnav, .headnav2 {
+		padding-right: 20px;
 	}
 }
 @media screen and (min-width: 980px) {
@@ -1516,8 +1523,8 @@ p#showAvatar {
 		display: none;
 	}
 	.gallery_item, .main_gallery {
-		flex: 0 0 33.3333%;
-		max-width: 33.3333%;
+		flex: 0 0 25%;
+		max-width: 25%;
 	}
 }
 @media screen and (min-width: 1200px) {
@@ -1536,8 +1543,11 @@ p#showAvatar {
 		display: none;
 	}
 	.gallery_item, .main_gallery {
-		flex: 0 0 25%;
-		max-width: 25%;
+		flex: 0 0 20%;
+		max-width: 20%;
+	}
+	.headnav, .headnav2 {
+		padding-right: 0px;
 	}
 }
 /*CSS样式结束*/
