@@ -102,7 +102,7 @@ pre code {
 .m_logo_a {
 	display: inline-block;
 	color: #fff;
-	font-family:'华文行楷';
+	font-family: "Comic Sans MS", "Microsoft YaHei", 文泉驿微米黑, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .m_search {
 	flex: 0 0 40px;
@@ -176,7 +176,7 @@ pre code {
 }
 .headlogo {
 	float: left;
-	font-family:'华文行楷';
+	font-family: "Comic Sans MS", "Microsoft YaHei", 文泉驿微米黑, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
 	line-height: 55px;
 	text-shadow: 1px 2px 3px rgba(0,0,0,.1);
 }
@@ -521,8 +521,8 @@ a.next {
 	text-align: center;
 }
 .me-avatar a img {
-	width: 90px;
-	height: 90px;
+	width: 80px;
+	height: 80px;
 	border-radius: 50%;
 	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.45);
 	transition: transform .6s ease-in-out;
@@ -778,6 +778,9 @@ a.next {
 	font-size: 13px;
 	margin-bottom: 10px;
 }
+.recordBody:hover {
+	border: 1px solid rgba(29,89,189,0.3);
+}
 .recordBody>a {
 	display: inline;
 	color: #fff;
@@ -823,6 +826,7 @@ a.next {
 .post_body p {
 	line-height: 22px;
 	padding: 7px 10px;
+	font-size: 13px;
 }
 .post_body p strong {
 	color: #ff0000;
@@ -1023,6 +1027,9 @@ a.next {
 .comment-author cite {
 	font-weight: bold;
 	font-style: normal;
+}
+cite.fn {
+	font-size: 12px;
 }
 .comment-author a {
 	color: #166;
@@ -1276,12 +1283,13 @@ p#showAvatar {
 	top: 190px;
 	font-size: 26px;
 	text-shadow: 2px 5px 9px rgba(0,0,0,1);
-	font-family: '华文隶书';
+	font-family: "Comic Sans MS", "Microsoft YaHei", 文泉驿微米黑, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .section h3 a {
 	display: inline-block;
 	color: #fff;
-	font-family: '华文隶书';
+	font-family: "Comic Sans MS", "Microsoft YaHei", 文泉驿微米黑, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+
 }
 .section p {
 	position: relative;
@@ -1365,6 +1373,27 @@ p#showAvatar {
     transition: opacity .25s;
 }
 /* 边栏打字效果CSS结束code for animated blinking cursor */
+#comments .page-navigator {
+	text-align: center;
+	margin-top: 20px;
+}
+#comments .page-navigator li {
+	display: inline-block;
+	border: 1px solid #f1f1f1;
+	margin: 0 2px;
+	padding: 0px;
+}
+#comments .page-navigator li a {
+	color: #666;
+	font-size: 12px;
+	padding: 10px;
+}
+#comments .page-navigator li a:hover {
+	background: #f4f4f4;
+}
+.page-navigator .current {
+	background: #f4f4f4;
+}
 @media screen and (max-width: 767px) {
 	.site-wrap, .slide-img, .sentences {
 		max-width: 460px;
