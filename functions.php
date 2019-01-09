@@ -1,11 +1,22 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeConfig($form) {
-    $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, NULL, _t('站点 LOGO 图片地址'), _t('填入LOGO图片地址，将在右侧关于博主处显示！'));
+    $cusTitle = new Typecho_Widget_Helper_Form_Element_Text('cusTitle', NULL, NULL, _t('站点名称'), _t(''));
+    $form->addInput($cusTitle);
+
+    $desc = new Typecho_Widget_Helper_Form_Element_Text('desc', NULL, NULL, _t('站点副标题，将显示在标题栏上！'), _t(''));
+    $form->addInput($desc);
+
+    $cusNotice = new Typecho_Widget_Helper_Form_Element_Textarea('cusNotice', NULL, NULL, _t('设置网站公告，在侧栏显示！支持html代码。'), _t(''));
+    $cusNotice->input->setAttribute('style', 'height:80px;');
+    $form->addInput($cusNotice);
+
+    $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, NULL, _t('侧栏关于博主头像，填入头像图片地址！'), _t(''));
     $form->addInput($logoUrl);
 
-    $desc = new Typecho_Widget_Helper_Form_Element_Text('desc', NULL, NULL, _t('站点副标题'), _t('显示在标题栏上！'));
-    $form->addInput($desc);
+    $cusAboutme = new Typecho_Widget_Helper_Form_Element_Textarea('cusAboutme', NULL, NULL, _t('侧栏关于博主的文字说明！支持html代码。'), _t(''));
+    $cusAboutme->input->setAttribute('style', 'height:80px;');
+    $form->addInput($cusAboutme);
 
     $wechatqrcode = new Typecho_Widget_Helper_Form_Element_Text('wechatqrcode', NULL, NULL, _t('关于博主：微信二维码图片地址'), _t(''));
     $form->addInput($wechatqrcode);
@@ -65,6 +76,9 @@ function themeConfig($form) {
 
     $postdefaultimg = new Typecho_Widget_Helper_Form_Element_Text('postdefaultimg', NULL, NULL, _t('文章头部默认图片'), _t('填写图片地址，推荐分辨率2000*500px'));
     $form->addInput($postdefaultimg);
+
+    $loadingPic = new Typecho_Widget_Helper_Form_Element_Text('loadingPic', NULL, NULL, _t('懒加载动态loading.gif图片地址！'), _t(''));
+    $form->addInput($loadingPic);
 
     $beianno = new Typecho_Widget_Helper_Form_Element_Text('beianno', NULL, NULL, _t('网站底部备案号填写'), _t(''));
     $form->addInput($beianno);
@@ -147,7 +161,7 @@ function Links($sorts = NULL) {
         if ($options->Links) {
             $list = explode("\r\n", $options->Links);
             foreach ($list as $tmp) {
-                list($name, $url, $description, $sort) = explode(',', $tmp);
+                list($sort, $name, $url, $description) = explode(',', $tmp);
                 if (!isset($sorts) || $sorts == "") {
                     echo '<li><a class="innerlinksa" href="'.$url.'" title="'.$description.'" target="_blank">'.$name.'</a></li>';
                 } else {
@@ -172,7 +186,7 @@ function innerLinks($innersorts = NULL) {
             for ($i=0; $i < count($innerlinkcate); $i++) { 
                 echo '<span class="innerlinkcat">'.$innerlinkcate[$i].'</span><ul class="innerlinks_items">';
                 foreach ($list as $eachlist) {
-                    list($name, $url, $description, $sort, $type) = explode(',', $eachlist);
+                    list($sort, $name, $url, $description, $type) = explode(',', $eachlist);
                     if (isset($innersorts) && !$innersorts == "") {
                         if ($innerlinkcate[$i] === $sort) {
                             if ($type === '0') {
@@ -247,14 +261,19 @@ function themeInit($archive)
     }
 function image_class_replace($content)
     {
+        $options = Typecho_Widget::widget('Widget_Options');
+        if ($options->loadingPic) {
+            $loadingPicAddr = $options->loadingPic;
+        }
+
         $content = preg_replace('#<img(.*?) src="([^"]*/)?(([^"/]*)\.[^"]*)"(.*?)>#',
-            '<img$1 data-original="$2$3"$5 class="lazyload" src="https://res.sunxyu.cn/images/loading.gif">', $content);
+            '<img$1 data-original="$2$3"$5 class="lazyload" src="'.$loadingPicAddr.'">', $content);
         $content = preg_replace('#<a(.*?) href="([^"]*/)?(([^"/]*)\.[^"]*)"(.*?)>#',
             '<a$1 href="$2$3"$5 rel="external nofollow" target="_blank">', $content);
         $content = preg_replace('/\[addimg\](http:|https:)(.*?)(.jpg|.png|.jpeg|.png),(.*?)\[\/addimg\]/i','<a data-fancybox="gallery" href="$1$2$3" data-caption="$4">$4</a>', $content);
         $content = preg_replace('/(\[addvideo\])(http:|https:)(.*?),(.*?),(.*?),(.*?)(\[\/addvideo\])/i','<a data-fancybox data-width="$5" data-height="$6" href="$2$3" data-caption="$4">$4</a>', $content);
-        $content = preg_replace('/(\[addvideo2\])(http:|https:)(.*?),<img data-original="(http:|https:)(.*?)" alt="(.*?)" (.*?),(.*?),(.*?)(\[\/addvideo2\])/i','<a data-fancybox data-width="$8" data-height="$9" href="$2$3" data-caption="$6"><img data-original="$4$5" class="lazyload" src="https://res.sunxyu.cn/images/loading.gif" alt="$6" title="$6"></a>', $content);
-        $content = preg_replace('/(\[addvideo3\])(http:|https:)(.*?),(.*?),<a href="(http:|https:)(.*?),(.*?),(.*?)" (.*?)(\[\/addvideo3\])/i','<a data-fancybox data-width="$7" data-height="$8" href="$2$3" data-caption="$4"><img data-original="$5$6" class="lazyload" src="https://res.sunxyu.cn/images/loading.gif" alt="$4" title="$4"></a>', $content);
+        $content = preg_replace('/(\[addvideo2\])(http:|https:)(.*?),<img data-original="(http:|https:)(.*?)" alt="(.*?)" (.*?),(.*?),(.*?)(\[\/addvideo2\])/i','<a data-fancybox data-width="$8" data-height="$9" href="$2$3" data-caption="$6"><img data-original="$4$5" class="lazyload" src="'.$loadingPicAddr.'" alt="$6" title="$6"></a>', $content);
+        $content = preg_replace('/(\[addvideo3\])(http:|https:)(.*?),(.*?),<a href="(http:|https:)(.*?),(.*?),(.*?)" (.*?)(\[\/addvideo3\])/i','<a data-fancybox data-width="$7" data-height="$8" href="$2$3" data-caption="$4"><img data-original="$5$6" class="lazyload" src="'.$loadingPicAddr.'" alt="$4" title="$4"></a>', $content);
         $content = preg_replace('/\[group\](http:|https:)(.*?)(.jpg|.jpeg|.gif|.png),(.*?),(.*?)\[\/group\]/i','<a data-thumbs={"autoStart":true} href="$1$2$3" data-fancybox="$5" alt="$4" title="$4"><img src="$1$2$3" /></a>',$content);
         preg_match_all('/\[album\](http:|https:)(.*?)(.jpg|.jpeg|.gif|.png),(.*?)\[\/album\]/i', $content, $matches);
         $ca = count($matches[0]);

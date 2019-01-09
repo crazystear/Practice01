@@ -135,7 +135,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                 <article class="main-act">
                                     <div onclick="window.open('<?php $this->permalink() ?>','_self')" class="box">
                                         <a class="header" href="<?php $this->permalink() ?>">
-                                            <img class="lazyload" src="https://res.sunxyu.cn/images/loading.gif" data-original="<?php $this->fields->thumbimg(); ?>">
+                                            <img class="lazyload" src="<?php $this->options->loadingPic(); ?>" data-original="<?php $this->fields->thumbimg(); ?>">
                                         </a>
                                         <div class="box-content">
                                             <div class="content1 setback">
@@ -149,7 +149,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                             </div>
                                             <div class="content2">
                                                 <span class="post"><?php $this->title() ?><span style="font-size: 12px;">【<?php
-                                                        preg_match_all('/(http:|https:)(.*?)(.jpg|.png|.gif)/i', $this->content, $inpostImgMatch);
+                                                        preg_match_all('/(http:|https:)(.*?)(.jpg|.png|.gif|.jpeg)/i', $this->content, $inpostImgMatch);
                                                         $countInnerImg = count($inpostImgMatch[0]);
                                                         echo $countInnerImg.'P';
                                                     ?>】</span></span>

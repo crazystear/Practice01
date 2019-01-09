@@ -1,26 +1,20 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <div class="flex-right">
 	<div class="rightbar" id="rightbar">
-		<?php if($this->is('index')): ?>
+		<?php if($this->is('index')): ?><?php if($this->options->cusNotice): ?>
 		<div class="side-about" style="margin-bottom: 20px;border-radius: 0 0 5px 5px;">
 	    	<div class="about-me"><p><i style="color: #ff0000;" class="fa fa-bullhorn" aria-hidden="true"></i>&nbsp;&nbsp;公告</p></div>
-	    	<div class="desc"><p style="padding: 15px 20px;">本站目前使用的主题是Practice01，名字我是随便取的啦。该主题为自用主题，目前尚未发布！原因是本人觉得主题还不够完善，等功能完善后，若有人喜欢的话，我会考虑免费提供下载使用！</p></div>
+	    	<div class="desc"><p style="padding: 15px 20px;"><?php $this->options->cusNotice(); ?></p></div>
 	    </div>
-		<?php endif; ?>
+		<?php endif; ?><?php endif; ?>
 		<div class="side-about">
 	    	<div class="about-me"><p><i style="color: #ff0000;" class="fa fa-bookmark" aria-hidden="true"></i>&nbsp;&nbsp;关于博主</p></div>
 	    	<div class="me-avatar">
-	    		<?php if ($this->options->logoUrl): ?>
-	    			<a href="<?php $this->options->siteUrl(); ?>">
-		            	<img src="<?php $this->options->logoUrl() ?>" />
-		          	</a>
-	            <?php else: ?>
-	                <a href="<?php $this->options->siteUrl(); ?>">
-	            		<img src="https://sunxyu.cn/img/avatar.jpg" />
-	          		</a>
-	            <?php endif; ?>
+    			<a href="<?php $this->options->siteUrl(); ?>">
+	            	<img src="<?php $this->options->logoUrl(); ?>" />
+	          	</a>
 	    	</div>
-	    	<div class="desc"><p><?php $this->options->description() ?></p></div>
+	    	<div class="desc"><p><?php $this->options->cusAboutme(); ?></p></div>
 	    </div>
 	    <div class="right-social">
 			<div class="social">

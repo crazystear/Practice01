@@ -13,7 +13,7 @@ echo <<<Html
 {$img}
 Html;
 }
-?><?php endif; ?>" style="background-image: url(https://res.sunxyu.cn/images/loading.gif)">
+?><?php endif; ?>" style="background-image: url(<?php $this->options->loadingPic(); ?>)">
                                 <article class="main-act">
                                     <div class="cate2"><?php $this->category(',', true); ?>
                                     <?php
@@ -38,13 +38,13 @@ Html;
                             <div class="act">
                                 <article class="main-act">
 <?php if(!($this->fields->thumbimg == '')) { ?>
-        <div><a class="header" href="<?php $this->permalink() ?>"><img class="lazyload" src="https://res.sunxyu.cn/images/loading.gif" data-original="<?php $this->fields->thumbimg(); ?>"></a></div>
+        <div><a class="header" href="<?php $this->permalink() ?>"><img class="lazyload" src="<?php $this->options->loadingPic(); ?>" data-original="<?php $this->fields->thumbimg(); ?>"></a></div>
 <?php }else{ ?>
 <?php
     preg_match_all("/\<img.*?src\=(\'|\")(.*?)(\'|\")[^>]*>/i", $this->content, $matches);
     $imgCount = count($matches[0]);
     if ($imgCount >= 1) { ?>
-        <div><a class="header" href="<?php $this->permalink() ?>"><img class="lazyload" src="https://res.sunxyu.cn/images/loading.gif" data-original="<?php $img = $matches[2][0];
+        <div><a class="header" href="<?php $this->permalink() ?>"><img class="lazyload" src="<?php $this->options->loadingPic(); ?>" data-original="<?php $img = $matches[2][0];
 echo <<<Html
 {$img}
 Html;

@@ -3,7 +3,7 @@
 <script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.staticfile.org/masonry/4.2.2/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+<script src="https://cdn.staticfile.org/fancybox/3.5.2/jquery.fancybox.min.js"></script>
 <script src="https://cdn.staticfile.org/highlight.js/9.13.1/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <!-- 图片懒加载结合masonry -->
@@ -58,8 +58,8 @@ function f_masonry() {
 <!-- 头部全屏轮播调用 -->
 <?php if(!($this->is('post') || $this->is('page'))): ?>
 <?php if (!empty($this->options->slideImages) && in_array('ShowSlideOn', $this->options->slideImages)): ?>
-<script src="https://cdn.jsdelivr.net/npm/pageswitch@2.3.2/src/pageSwitch.min.js"></script>
-    <script>
+<script type="text/javascript" src="<?php $this->options->themeUrl('/js/pageSwitch.min.js'); ?>"></script>
+<script>
     a=new pageSwitch('sections',{
     duration:1500,
     start:0,
@@ -91,7 +91,8 @@ for(;i<navs.length;i++){
 <?php endif; ?>
 <div class="footer">
     <div class="infoot">
-        <p>Theme <strong style="color: rgba(77, 136, 255,.9);">practice01</strong> Made by 小宇 Copyright © 2018 <a href="http://www.miitbeian.gov.cn" target="_blank" rel="noopener noreferrer"><?php $this->options->beianno(); ?></a></p>
+        <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">practice01</strong> Made by 小宇</p>
+        <p>Copyright © 2018 <a href="http://www.miitbeian.gov.cn" target="_blank" rel="noopener noreferrer"><?php $this->options->beianno(); ?></a></p>
         <p>Published with Typecho</p>
     </div>
 </div>
@@ -122,7 +123,6 @@ for(;i<navs.length;i++){
         });
     }
 </script>
-
 <?php endif; ?>
 <script type="text/javascript" src="<?php $this->options->themeUrl('/js/practice01.js'); ?>"></script>
 </body>

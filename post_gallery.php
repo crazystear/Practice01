@@ -11,8 +11,8 @@
                                 preg_match_all($reg, $fullcontent, $matches);
                                 $countPostImg = count($matches[0]);
                                 for ($k=0; $k < $countPostImg; $k++) { 
-                                    echo '<div class="gallery_item main2"><div class="gallery_item_act"><div class="innerGallery"><a data-fancybox="gallery" href="'.$matches[0][$k].'"><img data-original="'.$matches[0][$k].'" class="lazyload" src="https://res.sunxyu.cn/images/loading.gif"></a></div></div></div>';
-                                }   
+                                    echo '<div class="gallery_item main2"><div class="gallery_item_act"><div class="innerGallery"><a data-fancybox="gallery" href="'.$matches[0][$k].'"><img data-original="'.$matches[0][$k].'" class="lazyload" src="'.$this->options->loadingPic.'"></a></div></div></div>';
+                                }
                             ?>
                     </div>
                 </div>

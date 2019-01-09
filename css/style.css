@@ -102,7 +102,7 @@ pre code {
 .m_logo_a {
 	display: inline-block;
 	color: #fff;
-	font-family: "Comic Sans MS", "Microsoft YaHei", 文泉驿微米黑, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+	font-family: Roboto,"Open Sans","Microsoft YaHei","Helvetica Neue",Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 .m_search {
 	flex: 0 0 40px;
@@ -176,9 +176,9 @@ pre code {
 }
 .headlogo {
 	float: left;
-	font-family: "Comic Sans MS", "Microsoft YaHei", 文泉驿微米黑, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
 	line-height: 55px;
 	text-shadow: 1px 2px 3px rgba(0,0,0,.1);
+	font-family: Roboto,"Open Sans","Microsoft YaHei","Helvetica Neue",Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 .headlogo a {
 	font-size: 18px;
@@ -1283,13 +1283,12 @@ p#showAvatar {
 	top: 190px;
 	font-size: 26px;
 	text-shadow: 2px 5px 9px rgba(0,0,0,1);
-	font-family: "Comic Sans MS", "Microsoft YaHei", 文泉驿微米黑, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+	font-family: Roboto,"Open Sans","Microsoft YaHei","Helvetica Neue",Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 .section h3 a {
 	display: inline-block;
 	color: #fff;
-	font-family: "Comic Sans MS", "Microsoft YaHei", 文泉驿微米黑, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
-
+	font-family: Roboto,"Open Sans","Microsoft YaHei","Helvetica Neue",Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 .section p {
 	position: relative;
