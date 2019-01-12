@@ -499,6 +499,14 @@ a.next {
 	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.05);
 	margin-bottom: -1px;
 }
+.about-me {
+	display: flex;
+	justify-content: space-between;
+}
+a.cusMore {
+	display: inline;
+	color: #666;
+}
 .about-me, .links, .newcomments_title, .newposts_title {
 	padding: 10px 15px;
 	border-bottom: 1px solid #f4f4f4;
@@ -540,6 +548,15 @@ a.next {
 .desc p {
 	padding: 0px 20px 30px 20px;
 	font-size: 12px;
+}
+.desc2 p {
+	padding: 15px 20px;
+	font-size: 12px;
+}
+.desc2>p>span {
+	display: block;
+	text-align: right;
+	color: #999;
 }
 .newcomments, .newposts {
 	background: #fff;
@@ -777,9 +794,15 @@ a.next {
 	padding: 15px 10px;
 	font-size: 13px;
 	margin-bottom: 10px;
+	transition: all .4s ease-out;
+	-webkit-transition: all .4s;
+	-moz-transition: all .4s;
+	-o-transition: all .4s;
+	-ms-transition: all .4s;
 }
 .recordBody:hover {
 	border: 1px solid rgba(29,89,189,0.3);
+	color: #3d71d4;
 }
 .recordBody>a {
 	display: inline;
@@ -835,6 +858,12 @@ a.next {
 	color: #ff0000;
 	font-size: 12px;
 }
+.post_body h2 {
+	border-left: 3px solid rgba(74, 123, 220, 0.8);
+	padding: 0px 10px;
+	margin: 20px 10px 10px 10px;
+	font-size: 18px;
+}
 .post_body blockquote {
 	background: rgb(82, 96, 119);
 	color: #fff;
@@ -881,6 +910,8 @@ a.next {
 	background: rgba(0,0,0,.03);
 	border-radius: 5px;
 	font-size: 13px;
+	overflow-x: auto;
+	white-space: nowrap;
 }
 .post_body ol li {
 	border-left: 1px solid rgba(77, 136, 255,.5);

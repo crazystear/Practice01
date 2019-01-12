@@ -66,9 +66,9 @@
             <li class="nav_menu_li"><a class="navmla nav_menu_li_a2" href="<?php $categorys->permalink(); ?>" title="<?php $categorys->description(); ?>"><?php $categorys->name(); ?></a></li>
             <?php endwhile; ?>
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-            <?php while($pages->next()): ?>
+            <?php while($pages->next()): ?><?php if(!($pages->template == 'page-status.php')): ?>
             <li class="nav_menu_li"><a class="navmla nav_menu_li_a2" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a></li>
-            <?php endwhile; ?>
+            <?php endif; ?><?php endwhile; ?>
             <li id="controlSearch" class="nav_menu_li"><a id="switchicon" class="navmla2 nav_menu_li_a2"><i class="fa fa-search" aria-hidden="true"></i></a></li>
         </ul>
     </div>

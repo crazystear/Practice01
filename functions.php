@@ -7,10 +7,6 @@ function themeConfig($form) {
     $desc = new Typecho_Widget_Helper_Form_Element_Text('desc', NULL, NULL, _t('站点副标题，将显示在标题栏上！'), _t(''));
     $form->addInput($desc);
 
-    $cusNotice = new Typecho_Widget_Helper_Form_Element_Textarea('cusNotice', NULL, NULL, _t('设置网站公告，在侧栏显示！支持html代码。'), _t(''));
-    $cusNotice->input->setAttribute('style', 'height:80px;');
-    $form->addInput($cusNotice);
-
     $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, NULL, _t('侧栏关于博主头像，填入头像图片地址！'), _t(''));
     $form->addInput($logoUrl);
 

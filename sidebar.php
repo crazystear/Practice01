@@ -1,12 +1,27 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <div class="flex-right">
 	<div class="rightbar" id="rightbar">
-		<?php if($this->is('index')): ?><?php if($this->options->cusNotice): ?>
-		<div class="side-about" style="margin-bottom: 20px;border-radius: 0 0 5px 5px;">
-	    	<div class="about-me"><p><i style="color: #ff0000;" class="fa fa-bullhorn" aria-hidden="true"></i>&nbsp;&nbsp;公告</p></div>
-	    	<div class="desc"><p style="padding: 15px 20px;"><?php $this->options->cusNotice(); ?></p></div>
-	    </div>
-		<?php endif; ?><?php endif; ?>
+		<?php if(!($this->is('page'))): ?>
+		<?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+			<?php while($pages->next()): ?>
+				<?php if ($pages->template == 'page-status.php'): ?>
+					<?php if(!($pages->content == '')): ?>
+					<div class="side-about" style="margin-bottom: 20px;border-radius: 5px;">
+				    	<div class="about-me">
+				    		<p><i style="color: #ff0000;" class="fa fa-bullhorn" aria-hidden="true"></i>&nbsp;&nbsp;<?php $pages->title(); ?></p>
+				    		<p><a class="cusMore" href="<?php $pages->permalink(); ?>" title="查看更多..."><i class="fa fa-bars" aria-hidden="true"></i></a></p>
+				    	</div>
+				    	<div class="desc2">
+					    	<?php
+					    		preg_match('/\[record\](.*?)\<br\>(.*?)\[\/record]/i', $pages->content, $smatches);
+					    		echo '<p>'.$smatches[2].'<span> --- updated on '.$smatches[1].'</span></p>';
+					    	?>	
+				    	</div>
+				    </div>
+				    <?php endif; ?>
+				<?php endif; ?>
+			<?php endwhile; ?>
+		<?php endif; ?>
 		<div class="side-about">
 	    	<div class="about-me"><p><i style="color: #ff0000;" class="fa fa-bookmark" aria-hidden="true"></i>&nbsp;&nbsp;关于博主</p></div>
 	    	<div class="me-avatar">
