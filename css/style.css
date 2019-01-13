@@ -864,6 +864,9 @@ a.cusMore {
 	margin: 20px 10px 10px 10px;
 	font-size: 18px;
 }
+.post_body h4 {
+	padding: 10px 10px 0px;
+}
 .post_body blockquote {
 	background: rgb(82, 96, 119);
 	color: #fff;
@@ -934,6 +937,7 @@ a.cusMore {
 	word-break:break-all;
 	padding: 10px;
 	line-height: 1.4;
+	font-size: 13px;
 	/*text-shadow: 0 1px #fff;*/
 	font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
 }
