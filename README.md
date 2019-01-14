@@ -5,8 +5,6 @@
 
 主题使用中有任何问题都可以在此提问，基本上都可以得到回复：）
 
-![网站缩略图.png][1]
-
 ## 主题在线演示
 
 请查看本站即可！
@@ -212,7 +210,7 @@
 接下来主题会进入缓慢的更新状态！！！
 
 
-  [1]: https://sunxyu.cn/usr/uploads/2019/01/3793274281.png
+
   [2]: https://github.com/crazystear/Practice01
   [3]: https://sunxyu.cn/usr/uploads/2019/01/1243850090.zip
   [4]: https://sunxyu.cn/faketech/431.html
