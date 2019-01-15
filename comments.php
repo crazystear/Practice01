@@ -32,14 +32,22 @@ echo $commentClass;
     $url = '/gravatar/';
     $size = '40';
     $rating = Helper::options()->commentsAvatarRating;
+    $cusAva = Helper::options()->commentAuthorAvatar;
     $hash = md5(strtolower($comments->mail));
     $email = strtolower($comments->mail);
-    $sjtx = Typecho_Widget::widget('Widget_Options')->motx; 
-    $avatar = $host . $url . $hash . '?s=' . $size . '&r=' . $rating . '&d='.$sjtx;
+    $sjtx = Typecho_Widget::widget('Widget_Options')->motx;    
+    $qqnumber = str_replace('@qq.com', '', $email);
+    if (!($cusAva == '') && $comments->authorId == $comments->ownerId) {
+        $avatar = $cusAva;
+    }elseif (strstr($email,"qq.com") && is_numeric($qqnumber) && strlen($qqnumber) > 4 && strlen($qqnumber) < 12) {
+        $avatar = 'https://q.qlogo.cn/g?b=qq&nk='.$qqnumber.'&s='.$size.'';
+    }else {
+        $avatar = $host . $url . $hash . '?s=' . $size . '&r=' . $rating . '&d='.$sjtx;
+    }
 ?>
     <div class="comment-author">
             <img class="avatar"
-     src="<?php echo $avatar ?>" alt="<?php echo $comments->author; ?>" width="<?php echo $size ?>" height="<?php echo $size ?>" />
+     src="<?php echo $avatar; ?>" alt="<?php echo $comments->author; ?>" width="<?php echo $size ?>" height="<?php echo $size ?>" />
             <cite class="fn"><?php echo $author; ?></cite>
         </div>
         <div class="comment-meta">
@@ -104,7 +112,26 @@ echo $commentClass;
                 <?php endif; ?>
             </div>
             <div class="post_comment_submit">
-                <p id="showAvatar"><img style="width: 80px;" src="https://cdn.v2ex.com/gravatar/?s=80"></p>
+                <p id="showAvatar">
+                    <?php if($this->user->hasLogin()): ?>
+                        <?php
+                            $masterMail = $this->user->mail;
+                            $cusAvatar = $this->options->commentAuthorAvatar;
+                            $mdmdmd5 = md5(strtolower(trim($masterMail)));
+                            $qnum = str_replace('@qq.com', '', $masterMail);
+                            if (!($cusAvatar == '')) {
+                                $avatarLoged = $cusAvatar;
+                            }elseif (strstr($masterMail,"qq.com") && is_numeric($qnum) && strlen($qnum) > 4 && strlen($qnum) < 12) {
+                                $avatarLoged = 'https://q.qlogo.cn/g?b=qq&nk='.$qnum.'&s=100';
+                            }else {
+                                $avatarLoged = 'https://cdn.v2ex.com/gravatar/' . $mdmdmd5 . '?s=80';
+                            }
+                        ?>
+                        <img style="width: 80px;height: 80px;" src="<?php echo $avatarLoged; ?>">    
+                    <?php else: ?>
+                        <img style="width: 80px;height: 80px;" src="https://cdn.v2ex.com/gravatar/?s=80">
+                    <?php endif; ?>
+                </p>
                 <p>
                     <button type="submit" class="submit"><?php _e('提交评论'); ?></button>
                 </p>

@@ -557,6 +557,7 @@ a.cusMore {
 	display: block;
 	text-align: right;
 	color: #999;
+	padding-top: 10px;
 }
 .newcomments, .newposts {
 	background: #fff;
