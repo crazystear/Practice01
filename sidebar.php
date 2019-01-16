@@ -14,7 +14,11 @@
 				    	<div class="desc2">
 					    	<?php
 					    		preg_match('/\[record\](.*?)\<br\>(.*?)\[\/record]/i', $pages->content, $smatches);
-					    		echo '<p>'.$smatches[2].'<span> --- updated on '.$smatches[1].'</span></p>';
+					    		if ($smatches) {
+					    			echo '<p>'.$smatches[2].'<span> --- updated on '.$smatches[1].'</span></p>';
+					    		}else{
+					    			echo "<p>未获取到内容，请按照主题指定的格式发布公告或动态内容！</p>";
+					    		}
 					    	?>	
 				    	</div>
 				    </div>
@@ -41,17 +45,29 @@
 				</div>
 				<div class="tweibo" style="border-right: 1px solid rgba(0,0,0,.04)">
 					<a class="tweibo-a" href="<?php $this->options->githubaddr(); ?>" target="_blank">
-						<i class="fa fa-github" aria-hidden="true"></i>
+						<?php if(!empty($this->options->secIcon)): ?>
+							<?php $this->options->secIcon(); ?>
+						<?php else: ?>
+							<i class="fa fa-github" aria-hidden="true"></i>
+						<?php endif; ?>
 					</a>
 				</div>
 				<div class="qq" style="border-right: 1px solid rgba(0,0,0,.04)">
 					<a class="qq-a" href="<?php $this->options->contactbyqq(); ?>" target="_blank">
-						<i class="fa fa-qq" aria-hidden="true"></i>
+						<?php if(!empty($this->options->thrIcon)): ?>
+							<?php $this->options->thrIcon(); ?>
+						<?php else: ?>
+							<i class="fa fa-qq" aria-hidden="true"></i>
+						<?php endif; ?>
 					</a>
 				</div>
 				<div class="weibo" style="border-right: 1px solid rgba(0,0,0,.04)">
 					<a class="weibo-a" href="<?php $this->options->meonweibo(); ?>" target="_blank">
-						<i class="fa fa-weibo" aria-hidden="true"></i>
+						<?php if(!empty($this->options->forIcon)): ?>
+							<?php $this->options->forIcon(); ?>
+						<?php else: ?>
+							<i class="fa fa-weibo" aria-hidden="true"></i>
+						<?php endif; ?>
 					</a>
 				</div>
 				<div class="email">

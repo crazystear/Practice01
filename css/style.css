@@ -548,10 +548,12 @@ a.cusMore {
 .desc p {
 	padding: 0px 20px 30px 20px;
 	font-size: 12px;
+	text-align: justify;
 }
 .desc2 p {
 	padding: 15px 20px;
 	font-size: 12px;
+	text-align: justify;
 }
 .desc2>p>span {
 	display: block;
