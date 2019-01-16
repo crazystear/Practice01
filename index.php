@@ -4,7 +4,7 @@
  * 
  * @package practice01
  * @author 小宇
- * @version 1.0.1
+ * @version 1.0.2
  * @link https://sunxyu.cn
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
