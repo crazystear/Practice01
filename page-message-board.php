@@ -41,9 +41,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 									$mostactive = '';
 									$avatar_path = 'https://cdn.v2ex.com/gravatar/';
 									foreach ($counts as $count) {
-									  $avatar = $avatar_path . md5(strtolower($count['mail'])) . '?s=65';
+                                      $qnum = str_replace('@qq.com', '', $count['mail']);
+                                      if (strstr($count['mail'], "qq.com") && is_numeric($qnum) && strlen($qnum) > 4 && strlen($qnum) < 12) {
+                                          $avatar = 'https://q.qlogo.cn/g?b=qq&nk='.$qnum.'&s=100';
+                                      }else{
+                                          $avatar = $avatar_path . md5(strtolower($count['mail'])) . '?s=65';
+                                      }
 									  $c_url = $count['url']; if ( !$c_url ) $c_url = Helper::options()->siteUrl;
-									  $mostactive .= "<a class='message_board_a' href='" . $c_url . "' title='" . $count['author'] . " (参与" . $count['cnt'] . "次互动)' target='_blank' rel='external nofollow'><img class='message_board_a_img' src='" . $avatar . "' alt='" . $count['author'] . "的头像' width='65' height='65' /></a>\n";
+									  $mostactive .= "<a class='message_board_a' href='" . $c_url . "' title='" . $count['author'] . " (参与" . $count['cnt'] . "次互动)' target='_blank' rel='external nofollow'><img style='width:65px;height:65px;' class='message_board_a_img' src='" . $avatar . "' alt='" . $count['author'] . "的头像' width='65' height='65' /></a>\n";
 									}
 									echo $mostactive; ?>
 								</div>	

@@ -25,7 +25,7 @@
 <!DOCTYPE HTML>
 <html class="no-js">
 <head>
-    <meta charset="<?php $this->options->charset(); ?>">
+    <meta charset="UFT-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -51,6 +51,7 @@
     <![endif]-->
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
+    <?php if(!($this->options->tongji == '')): ?><?php $this->options->tongji(); ?><?php endif; ?>
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -138,12 +139,13 @@
             <div class="sections2">
                 <?php if (!($this->fields->headbigimg == '')): ?>
                     <div class="section2 lazyload" data-original="<?php $this->fields->headbigimg(); ?>" style="background-image: url();">
-                        <h3><?php $this->fields->headpostdesc(); ?></h3>
-                    </div>
                 <?php else: ?>
                     <div class="section2 lazyload" data-original="<?php $this->options->postdefaultimg(); ?>" style="background-image: url();">
-                        <h3>书犹药也,善读可以医愚</h3>
-                    </div>
+                <?php endif; ?>
+                <?php if (!($this->fields->headpostdesc == '')): ?>
+                    <h3><?php $this->fields->headpostdesc(); ?></h3>
+                <?php else: ?>
+                    <h3><?php $this->options->postdefaultword(); ?></h3>
                 <?php endif; ?>
             </div> 
         </div>

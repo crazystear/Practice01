@@ -91,10 +91,14 @@
 	    	<div class="newcomments_title"><p><i style="color: #ff0000" class="fa fa-commenting" aria-hidden="true"></i>&nbsp;&nbsp;近期评论</p></div>
 	    	<div class="newcomments_items">
 	    		<ul>
-				<?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
-			    <?php while($comments->next()): ?>
-			    <li><a href="<?php $comments->permalink(); ?>"><i style="color:rgba(77, 136, 255,.8);" class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;<?php $comments->author(false); ?></a>: <?php $comments->excerpt(50, '...'); ?></li>
-			<?php endwhile; ?>
+				<?php $this->widget('Widget_Comments_Recent','pageSize=10&ignoreAuthor=true')->to($comments); ?>
+				<?php if($comments->have()): ?>
+					<?php while($comments->next()): ?>
+				    	<li><a href="<?php $comments->permalink(); ?>"><i style="color:rgba(77, 136, 255,.8);" class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;<?php $comments->author(false); ?></a>: <?php $comments->excerpt(50, '...'); ?></li>
+					<?php endwhile; ?>
+				<?php else: ?>
+					<li>暂无评论</li>
+				<?php endif; ?>
 				</ul>
 	    	</div>
 	    </div>  

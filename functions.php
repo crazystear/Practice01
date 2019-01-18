@@ -54,19 +54,19 @@ function themeConfig($form) {
     $form->addInput($SlideImgNum2->addRule('isInteger', _t('请填入一个数字')));
 
     $fixedSidebar = new Typecho_Widget_Helper_Form_Element_Checkbox('fixedSidebar', 
-    array('fSidebar' => _t('页面滚动边栏固定')),
+    array('fSidebar' => _t('开户页面滚动边栏固定')),
     array(), _t('<span style="color:#ff0000;margin-right:0px;">18.</span>边栏固定，默认关闭！'));
     $form->addInput($fixedSidebar->multiMode());
 
     $ShowLinks = new Typecho_Widget_Helper_Form_Element_Checkbox('ShowLinks', array('sidebar' => _t('显示首页友情链接（在首页侧边栏显示）')), NULL, _t('<span style="color:#ff0000;margin-right:0px;">19.</span>显示友链，勾选后请在链接列表中按格式输入链接信息即可'));
     $form->addInput($ShowLinks->multiMode());
 
-    $Links = new Typecho_Widget_Helper_Form_Element_Textarea('Links', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">20.</span>首页链接列表（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入链接信息，格式：<strong>1链接分类*,2链接名称*,3链接地址*,4链接描述</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>myself,小宇博客,https://sunxyu.cn,没有什么会永垂不朽</mark></strong><br>链接分类用于过滤要显示的链接，建议使用英文！'));
+    $IndexLinksSort = new Typecho_Widget_Helper_Form_Element_Text('IndexLinksSort', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">20.</span>要显示在首页侧边栏的链接分类（支持多分类，请用英文逗号“,”分隔）'), _t('若只需显示某分类下的链接，请输入链接分类名（建议使用字母形式的分类名），<mark>留空则默认显示全部链接列表中的链接</mark>'));
+    $form->addInput($IndexLinksSort);
+
+    $Links = new Typecho_Widget_Helper_Form_Element_Textarea('Links', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">21.</span>首页链接列表（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入链接信息，格式：<strong>1链接分类*,2链接名称*,3链接地址*,4链接描述</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>myself,小宇博客,https://sunxyu.cn,没有什么会永垂不朽</mark></strong><br>链接分类用于过滤要显示的链接，建议使用英文！'));
     $Links->input->setAttribute('style', 'height:100px;resize:both;');
     $form->addInput($Links);
-
-    $IndexLinksSort = new Typecho_Widget_Helper_Form_Element_Text('IndexLinksSort', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">21.</span>要显示在首页侧边栏的链接分类（支持多分类，请用英文逗号“,”分隔）'), _t('若只需显示某分类下的链接，请输入链接分类名（建议使用字母形式的分类名），<mark>留空则默认显示全部链接列表中的链接</mark>'));
-    $form->addInput($IndexLinksSort);
 
     $innerlinkshow = new Typecho_Widget_Helper_Form_Element_Textarea('innerlinkshow', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">22.</span>要在内页（链接页面）显示的链接分类（支持多分类，一行一个）【 必填 】'), _t(''));
     $innerlinkshow->input->setAttribute('style', 'height:100px;resize:both;');
@@ -78,24 +78,41 @@ function themeConfig($form) {
 
     $postdefaultimg = new Typecho_Widget_Helper_Form_Element_Text('postdefaultimg', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">24.</span>文章头部默认图片'), _t('填写图片地址，推荐分辨率2000*500px'));
     $form->addInput($postdefaultimg);
+    $postdefaultword = new Typecho_Widget_Helper_Form_Element_Text('postdefaultword', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">25.</span>文章头部默认文字'), _t(''));
+    $form->addInput($postdefaultword);
 
-    $loadingPic = new Typecho_Widget_Helper_Form_Element_Text('loadingPic', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">25.</span>懒加载动态loading.gif图片地址！'), _t(''));
+    $loadingPic = new Typecho_Widget_Helper_Form_Element_Text('loadingPic', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">26.</span>懒加载动态loading.gif图片地址！'), _t(''));
     $form->addInput($loadingPic);
-
-    $beianno = new Typecho_Widget_Helper_Form_Element_Text('beianno', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">26.</span>网站底部备案号填写'), _t(''));
-    $form->addInput($beianno);
 
     $commentAuthorAvatar = new Typecho_Widget_Helper_Form_Element_Text('commentAuthorAvatar', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">27.</span>自定义博主评论头像地址'), _t(''));
     $form->addInput($commentAuthorAvatar);
 
+    $beianno = new Typecho_Widget_Helper_Form_Element_Text('beianno', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">28.</span>网站底部备案号填写'), _t(''));
+    $form->addInput($beianno);
+
     $posCopy = new Typecho_Widget_Helper_Form_Element_Checkbox('posCopy', 
-    array('openCopy' => _t('显示文章底部版权信息说明！')),
-    array('openCopy'), _t('<span style="color:#ff0000;margin-right:0px;">28.</span>版权说明'));
+    array('closeCopy' => _t('关闭文章底部版权信息说明！')),
+    array(''), _t('<span style="color:#ff0000;margin-right:0px;">29.</span>文章版权说明'));
     $form->addInput($posCopy->multiMode());
 
-    $postCopyright = new Typecho_Widget_Helper_Form_Element_Textarea('postCopyright', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">29.</span>文章底部自定义版权信息（支持HTML代码）'), _t('留空则显示主题定义的默认版权信息！'));
+    $postCopyright = new Typecho_Widget_Helper_Form_Element_Textarea('postCopyright', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">30.</span>文章底部自定义版权信息（支持HTML代码）'), _t('留空则显示主题定义的默认版权信息！'));
     $postCopyright->input->setAttribute('style', 'height:100px;resize:both;');
     $form->addInput($postCopyright);
+
+    $themeCopy = new Typecho_Widget_Helper_Form_Element_Checkbox('themeCopy', 
+    array('closeThemeCopy' => _t('关闭网站底部的主题版权说明！')),
+    array(''), _t('<span style="color:#ff0000;margin-right:0px;">31.</span>主题版权说明'));
+    $form->addInput($themeCopy->multiMode());
+
+    $tongji = new Typecho_Widget_Helper_Form_Element_Textarea('tongji', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">32.</span>网站统计代码'), _t(''));
+    $tongji->input->setAttribute('style', 'height:100px;resize:both;');
+    $form->addInput($tongji);
+
+    $bdAutoPush = new Typecho_Widget_Helper_Form_Element_Textarea('bdAutoPush', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">33.</span>百度自动推送工具代码'), _t('使用方式请查阅：https://ziyuan.baidu.com/linksubmit/index'));
+    $bdAutoPush->input->setAttribute('style', 'height:100px;resize:both;');
+    $form->addInput($bdAutoPush);
+
+    include("theme_config.php");
 }
 //get_post_view($this)
 function get_post_view($archive)

@@ -49,7 +49,10 @@ jQuery(document).ready(function($){
 //搜索框
 var controlSearch  = document.getElementById('controlSearch');
 var searchForm = document.getElementById('topsearch');
-document.getElementById('testme').innerHTML = 'Theme <strong style="color: rgba(77, 136, 255,.9);">practice01</strong> Made by 小宇';
+var testmea = document.getElementById('testme');
+if (testmea) {
+    testmea.innerHTML = 'Theme <strong style="color: rgba(77, 136, 255,.9);">practice01</strong> Made by kisxy.com';
+}
 controlSearch.onclick = function(){
     var oop = searchForm.style.opacity;
     if(oop == '0'){

@@ -1,5 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php if (!empty($this->options->posCopy) && in_array('openCopy', $this->options->posCopy)): ?>
+<?php if (!empty($this->options->posCopy) && in_array('closeCopy', $this->options->posCopy)): ?><?php else: ?>
     <p class="post_copyright">
         <?php if(!empty($this->options->postCopyright)): ?>
             <?php $this->options->postCopyright(); ?>

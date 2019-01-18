@@ -41,6 +41,10 @@ pre {
 pre code {
 	/*white-space: pre-wrap;*/
 }
+iframe {
+    display: block;
+    margin: 0 auto;
+}
 #headnav {
 	width: 100vw;
 	position: fixed;
@@ -854,7 +858,7 @@ a.cusMore {
 	padding: 7px 10px;
 	font-size: 13px;
 }
-.post_body p strong {
+.post_body p strong, .desc2 p strong {
 	color: #ff0000;
 }
 .post_body p em {
