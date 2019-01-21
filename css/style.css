@@ -1649,5 +1649,11 @@ p#showAvatar {
 	.headnav, .headnav2 {
 		padding-right: 0px;
 	}
+	.titleLen {
+		max-width: 60px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 }
 /*CSS样式结束*/

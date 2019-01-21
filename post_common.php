@@ -26,7 +26,7 @@ Html;
                                     </div>
                                     <div class="author2">
                                         <div>
-                                            <p><i style="font-size:12px;" class="fa fa-user" aria-hidden="true"></i>&nbsp;<?php $this->author(); ?>&nbsp;&nbsp;</p>
+                                            <p class="titleLen"><i style="font-size:12px;" class="fa fa-user" aria-hidden="true"></i>&nbsp;<?php $this->author(); ?>&nbsp;&nbsp;</p>
                                             <p><i style="font-size:12px;" class="fa fa-eye" aria-hidden="true"></i>&nbsp;<?php get_post_view($this) ?>&nbsp;&nbsp;</p>
                                             <p><i style="font-size:12px;" class="fa fa-comment" aria-hidden="true"></i>&nbsp;<?php $this->commentsNum('0','1','%d'); ?></p>
                                         </div>
@@ -63,7 +63,7 @@ Html;
                                     <div class="cate"><p><i style="font-size:12px;" class="fa fa-clone" aria-hidden="true"></i>&nbsp;<?php $this->category(',', true); ?></p></div>
                                     <div class="author">
                                         <div>
-                                            <p><i style="font-size:12px;" class="fa fa-user" aria-hidden="true"></i>&nbsp;<?php $this->author(); ?>&nbsp;&nbsp;</p>
+                                            <p class="titleLen"><i style="font-size:12px;" class="fa fa-user" aria-hidden="true"></i>&nbsp;<?php $this->author(); ?>&nbsp;&nbsp;</p>
                                             <p><i style="font-size:12px;" class="fa fa-eye" aria-hidden="true"></i>&nbsp;<?php get_post_view($this) ?>&nbsp;&nbsp;</p>
                                             <p><i style="font-size:12px;" class="fa fa-comment" aria-hidden="true"></i>&nbsp;<?php $this->commentsNum('0','1','%d'); ?></p>
                                         </div>
