@@ -101,7 +101,20 @@
 				<?php endif; ?>
 				</ul>
 	    	</div>
-	    </div>  
+	    </div>
+	<?php if (!empty($this->options->sidebarCategory) && in_array('onSidebar', $this->options->sidebarCategory)): ?>
+	    <div class="newcomments">
+	    	<div class="newcomments_title"><p><i style="color: #ff0000" class="fa fa-bars" aria-hidden="true"></i>&nbsp;&nbsp;分类目录</p></div>
+	    	<div class="sideCate_items">
+	    		<ul>
+	    		<?php $this->widget('Widget_Metas_Category_List')->to($categorys); ?>
+	            <?php while($categorys->next()): ?>
+	            	<li><a href="<?php $categorys->permalink(); ?>" title="<?php $categorys->description(); ?>"><?php $categorys->name(); ?></a></li>
+	            <?php endwhile; ?>
+	        	</ul>
+	    	</div>
+	    </div>
+	<?php endif; ?>
 	<?php if($this->is('index')): ?>
 	<?php if (!empty($this->options->ShowLinks) && in_array('sidebar', $this->options->ShowLinks)): ?>
 	    <div class="friends">

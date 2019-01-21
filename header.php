@@ -62,10 +62,11 @@
         <div id="headlogo" class="headlogo"><a class="navmla2 nav_menu_li_a2" style="padding: 0;" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->cusTitle(); ?></a></div>
         <ul class="nav_menu">
             <li class="nav_menu_li"><a class="navmla nav_menu_li_a2" href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a></li>
+            <?php if (!empty($this->options->sidebarCategory) && in_array('onTopNav', $this->options->sidebarCategory)): ?>
             <?php $this->widget('Widget_Metas_Category_List')->to($categorys); ?>
             <?php while($categorys->next()): ?>
             <li class="nav_menu_li"><a class="navmla nav_menu_li_a2" href="<?php $categorys->permalink(); ?>" title="<?php $categorys->description(); ?>"><?php $categorys->name(); ?></a></li>
-            <?php endwhile; ?>
+            <?php endwhile; ?><?php endif; ?>
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
             <?php while($pages->next()): ?><?php if(!($pages->template == 'page-status.php')): ?>
             <li class="nav_menu_li"><a class="navmla nav_menu_li_a2" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a></li>

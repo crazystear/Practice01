@@ -112,6 +112,12 @@ function themeConfig($form) {
     $bdAutoPush->input->setAttribute('style', 'height:100px;resize:both;');
     $form->addInput($bdAutoPush);
 
+    $sidebarCategory = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarCategory', 
+    array('onTopNav' => _t('在顶部菜单栏显示（PC端）'),
+    'onSidebar' => _t('在侧边栏显示')),
+    array(''), _t('<span style="color:#ff0000;margin-right:0px;">34.</span>分类目录'));
+    $form->addInput($sidebarCategory->multiMode());
+
     include("theme_config.php");
 }
 //get_post_view($this)
