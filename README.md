@@ -7,7 +7,7 @@
 
 ## 主题在线演示
 
-请查看本站即可！
+https://kisxy.com
 
 ## 关于Practice01
 
