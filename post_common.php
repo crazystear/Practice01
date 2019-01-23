@@ -30,7 +30,7 @@ Html;
                                             <p><i style="font-size:12px;" class="fa fa-eye" aria-hidden="true"></i>&nbsp;<?php get_post_view($this) ?>&nbsp;&nbsp;</p>
                                             <p><i style="font-size:12px;" class="fa fa-comment" aria-hidden="true"></i>&nbsp;<?php $this->commentsNum('0','1','%d'); ?></p>
                                         </div>
-                                        <div><p><i style="font-size:12px;" class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;<time style="font-size: 12px;" datetime="<?php $this->date('Y-m-d'); ?>"><?php $this->date(); ?></time></p></div>
+                                        <div><p><i style="font-size:12px;" class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;<time style="font-size: 12px;" datetime="<?php $this->date('Y-m-d'); ?>"><?php $this->date('Y-m-d'); ?></time></p></div>
                                     </div>
                                 </article>
                             </div>
@@ -67,7 +67,7 @@ Html;
                                             <p><i style="font-size:12px;" class="fa fa-eye" aria-hidden="true"></i>&nbsp;<?php get_post_view($this) ?>&nbsp;&nbsp;</p>
                                             <p><i style="font-size:12px;" class="fa fa-comment" aria-hidden="true"></i>&nbsp;<?php $this->commentsNum('0','1','%d'); ?></p>
                                         </div>
-                                        <div><p><i style="font-size:12px;" class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;<time style="font-size: 12px;" datetime="<?php $this->date('Y-m-d'); ?>"><?php $this->date(); ?></time></p></div>
+                                        <div><p><i style="font-size:12px;" class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;<time style="font-size: 12px;" datetime="<?php $this->date('Y-m-d'); ?>"><?php $this->date('Y-m-d'); ?></time></p></div>
                                     </div>
                                 </article>
                             </div>

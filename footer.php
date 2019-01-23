@@ -113,6 +113,7 @@ for(;i<navs.length;i++){
           path: '.next',
           append: '.main2',
           hideNav: '#ajaxloadpost',
+          history: false,
           outlayer: msnry,
         });
         $grid.on('append.infiniteScroll', function( event, response, path) {

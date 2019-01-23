@@ -117,5 +117,15 @@ $(document).ready(function() {
         var randcolor3 = parseInt(Math.random() * (x3 - y3 + 1) +y3);
         $(this).addClass("randomlinkscg" + randcolor3);
     });
+
+    var logoUrl = document.getElementById('logoUrl');
+    // var wechatqrcode = document.getElementById('wechatqrcode');
+    $("#weixin").hover(function(){
+        logoUrl.style.display = 'none';
+        wechatqrcode.style.display = 'block';  
+        },function(){
+            logoUrl.style.display = 'block';
+            wechatqrcode.style.display = 'none';
+      });
 });
 //end-------------------------------------------------------------------------------

@@ -28,20 +28,20 @@
 		<?php endif; ?>
 		<div class="side-about">
 	    	<div class="about-me"><p><i style="color: #ff0000;" class="fa fa-bookmark" aria-hidden="true"></i>&nbsp;&nbsp;关于博主</p></div>
-	    	<div class="me-avatar">
-    			<a href="<?php $this->options->siteUrl(); ?>">
-	            	<img src="<?php $this->options->logoUrl(); ?>" />
-	          	</a>
-	    	</div>
-	    	<div class="desc"><p><?php $this->options->cusAboutme(); ?></p></div>
-	    </div>
-	    <div class="right-social">
+	    	<div>
+		    	<div class="me-avatar">
+	    			<a id="logoUrl" style="display: block;" href="<?php $this->options->siteUrl(); ?>">
+		            	<img src="<?php $this->options->logoUrl(); ?>" />
+		          	</a>
+		          	<a id="wechatqrcode" style="display: none;" href="<?php $this->options->siteUrl(); ?>">
+		            	<img src="<?php $this->options->wechatqrcode(); ?>" />
+		          	</a>
+		    	</div>
+		    	<div class="desc"><p><?php $this->options->cusAboutme(); ?></p></div>
+		    </div>
 			<div class="social">
-				<div class="weixin" style="border-right: 1px solid rgba(0,0,0,.04)">
+				<div class="weixin" id="weixin" style="border-right: 1px solid rgba(0,0,0,.04)">
 					<i class="fa fa-weixin" aria-hidden="true"></i>
-				</div>
-				<div class="wechatqrcode">
-				    <img alt="<?php $this->options->title() ?>" src="<?php $this->options->wechatqrcode(); ?>" />
 				</div>
 				<div class="tweibo" style="border-right: 1px solid rgba(0,0,0,.04)">
 					<a class="tweibo-a" href="<?php $this->options->githubaddr(); ?>" target="_blank">
@@ -76,7 +76,10 @@
 					</a>
 				</div>
 			</div>
-		</div>
+	    </div>
+
+		
+
 	<?php if(!($this->is('index'))): ?>
 		<div class="newposts">
 	    	<div class="newposts_title"><p><i style="color: #ff0000;" class="fa fa-fire" aria-hidden="true"></i>&nbsp;&nbsp;近期文章</p></div>
