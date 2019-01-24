@@ -499,6 +499,18 @@ a.next {
 	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.05);
 	margin-bottom: -1px;
 }
+.ava2wx {
+	max-height: 90px;
+	padding: 5px 0;
+	overflow: hidden;
+}
+#logoUrl, #wechatqrcode {
+	transition: all .4s ease-out;
+	-webkit-transition: all .4s ease-out;
+	-moz-transition: all .4s ease-out;
+	-ms-transition: all .4s ease-out;
+	-o-transition: all .4s ease-out;
+}
 .about-me {
 	display: flex;
 	justify-content: space-between;

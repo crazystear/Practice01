@@ -29,14 +29,14 @@
 		<div class="side-about">
 	    	<div class="about-me"><p><i style="color: #ff0000;" class="fa fa-bookmark" aria-hidden="true"></i>&nbsp;&nbsp;关于博主</p></div>
 	    	<div>
-		    	<div class="me-avatar">
-	    			<a id="logoUrl" style="display: block;" href="<?php $this->options->siteUrl(); ?>">
+		    	<div class="me-avatar"><div class="ava2wx">
+	    			<a id="logoUrl" style="opacity: 1;" href="<?php $this->options->siteUrl(); ?>">
 		            	<img src="<?php $this->options->logoUrl(); ?>" />
 		          	</a>
-		          	<a id="wechatqrcode" style="display: none;" href="<?php $this->options->siteUrl(); ?>">
+		          	<a id="wechatqrcode" style="margin-top: -80px;opacity: 0;" href="<?php $this->options->siteUrl(); ?>">
 		            	<img src="<?php $this->options->wechatqrcode(); ?>" />
 		          	</a>
-		    	</div>
+		    	</div></div>
 		    	<div class="desc"><p><?php $this->options->cusAboutme(); ?></p></div>
 		    </div>
 			<div class="social">

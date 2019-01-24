@@ -1,10 +1,10 @@
 <?php
 /**
- * 瀑布流布局的typecho主题practice01，因为这是我写的第一个typecho主题，纯属练习的作品，所以命名为practice01。
+ * 瀑布流布局的typecho主题practice01，这是我写的第一个typecho主题，纯属练习的作品，所以命名为practice01。主题功能请在使用中慢慢体会：）
  * 
  * @package practice01
  * @author 小宇
- * @version 1.0.4
+ * @version 1.0.5
  * @link https://sunxyu.cn
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;

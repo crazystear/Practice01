@@ -41,7 +41,7 @@
     <link rel="stylesheet" type="text/css" href="<?php $this->options->themeUrl('/css/style.css'); ?>">
     <link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.2/jquery.fancybox.min.css" />
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.13.1/styles/monokai-sublime.min.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.13.1/styles/<?php $this->options->highlightColor(); ?>.min.css" />
     <?php if(!($this->fields->aplayerurl == '' && $this->fields->aplayerthumb == '')): ?>
     <link href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
     <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script><?php endif; ?>

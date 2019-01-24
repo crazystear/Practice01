@@ -119,13 +119,14 @@ $(document).ready(function() {
     });
 
     var logoUrl = document.getElementById('logoUrl');
+    var wechatqrcode = document.getElementById('wechatqrcode');
     // var wechatqrcode = document.getElementById('wechatqrcode');
     $("#weixin").hover(function(){
-        logoUrl.style.display = 'none';
-        wechatqrcode.style.display = 'block';  
+        logoUrl.style.opacity = '0';
+        wechatqrcode.style.opacity = '1';
         },function(){
-            logoUrl.style.display = 'block';
-            wechatqrcode.style.display = 'none';
+            logoUrl.style.opacity = '1';
+            wechatqrcode.style.opacity = '0';
       });
 });
 //end-------------------------------------------------------------------------------

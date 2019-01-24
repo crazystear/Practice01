@@ -118,6 +118,25 @@ function themeConfig($form) {
     array(''), _t('<span style="color:#ff0000;margin-right:0px;">34.</span>分类目录'));
     $form->addInput($sidebarCategory->multiMode());
 
+    $highlightColor = new Typecho_Widget_Helper_Form_Element_Radio('highlightColor', 
+    array('default' => _t('default'),
+    'mono-blue' => _t('mono-blue'),
+    'tomorrow' => _t('tomorrow'),
+    'zenburn' => _t('zenburn'),
+    'purebasic' => _t('purebasic'),
+    'dracula' => _t('dracula'),
+    'xcode' => _t('xcode'),
+    'foundation' => _t('foundation'),
+    'vs2015' => _t('vs2015'),
+    'monokai-sublime' => _t('monokai-sublime'),
+    'routeros' => _t('routeros'),
+    'grayscale' => _t('grayscale'),
+    'vs' => _t('vs'),
+    'github' => _t('github'),
+    'atom-one-light' => _t('atom-one-light')),
+    'default', _t('35.选择代码高亮配色方案，默认为default方案！'), _t('配色效果参考：https://highlightjs.org/static/demo/'));
+    $form->addInput($highlightColor);
+
     include("theme_config.php");
 }
 //get_post_view($this)
