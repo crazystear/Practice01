@@ -505,11 +505,11 @@ a.next {
 	overflow: hidden;
 }
 #logoUrl, #wechatqrcode {
-	transition: all .4s ease-out;
-	-webkit-transition: all .4s ease-out;
-	-moz-transition: all .4s ease-out;
-	-ms-transition: all .4s ease-out;
-	-o-transition: all .4s ease-out;
+	transition: opacity .4s ease-out, transform .4s ease-out;
+	-webkit-transition: opacity .4s ease-out, transform .4s ease-out;
+	-moz-transition: opacity .4s ease-out, transform .4s ease-out;
+	-ms-transition: opacity .4s ease-out, transform .4s ease-out;
+	-o-transition: opacity .4s ease-out, transform .4s ease-out;
 }
 .about-me {
 	display: flex;
@@ -540,22 +540,23 @@ a.cusMore {
 	padding: 25px;
 	text-align: center;
 }
-.me-avatar a img {
+#logoUrl img {
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
 	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.45);
-	transition: transform .6s ease-in-out;
-	-webkit-transition: transform .6s ease-in-out;
-	-moz-transition: transform .6s ease-in-out;
-	-ms-transition: transform .6s ease-in-out;
-	-o-transition: transform .6s ease-in-out;
 }
-.me-avatar a img:hover {
+#wechatqrcode img {
+	width: 80px;
+	height: 80px;
+	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.45);
+}
+.ava2wx:hover #logoUrl {
 	transform: rotate(720deg);
 }
-.desc {
-
+.ava2wx a {
+	width: 80px;
+	margin: 0 auto;
 }
 .desc p {
 	padding: 0px 20px 30px 20px;
