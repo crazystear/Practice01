@@ -93,7 +93,7 @@ for(;i<navs.length;i++){
     <div class="infoot">
         <?php if (!empty($this->options->themeCopy) && in_array('closeThemeCopy', $this->options->themeCopy)): ?><?php else: ?>
         <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">practice01</strong> Made by kisxy.com</p><?php endif; ?>
-        <p>Copyright © 2019 <a href="http://www.miitbeian.gov.cn" target="_blank" rel="noopener noreferrer"><?php $this->options->beianno(); ?></a></p>
+        <p>Copyright © 2019 <a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer"><?php $this->options->beianno(); ?></a></p>
         <p>Published with Typecho</p>
     </div>
 </div></div>
