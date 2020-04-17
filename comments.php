@@ -40,7 +40,7 @@ echo $commentClass;
     if (!($cusAva == '') && $comments->authorId == $comments->ownerId) {
         $avatar = $cusAva;
     }elseif (strstr($email,"qq.com") && is_numeric($qqnumber) && strlen($qqnumber) > 4 && strlen($qqnumber) < 12) {
-        $avatar = 'https://q.qlogo.cn/g?b=qq&nk='.$qqnumber.'&s='.$size.'';
+        $avatar = 'https://q2.qlogo.cn/g?b=qq&nk='.$qqnumber.'&s='.$size.'';
     }else {
         $avatar = $host . $url . $hash . '?s=' . $size . '&r=' . $rating . '&d='.$sjtx;
     }
@@ -104,7 +104,7 @@ echo $commentClass;
                     <input placeholder="昵称 *" type="text" name="author" id="author" class="text" value="<?php $this->remember('author'); ?>" required />
                 </p>
                 <p>
-                    <input onblur="showAva(this.value)" placeholder="邮箱 *" type="email" name="mail" id="mail" class="text" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> />
+                    <input onblur="showAva()" placeholder="邮箱 *" type="email" name="mail" id="mail" class="text" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> />
                 </p>
                 <p>
                     <input placeholder="http://" type="url" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>" onfocus="getUrl()" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
@@ -122,7 +122,7 @@ echo $commentClass;
                             if (!($cusAvatar == '')) {
                                 $avatarLoged = $cusAvatar;
                             }elseif (strstr($masterMail,"qq.com") && is_numeric($qnum) && strlen($qnum) > 4 && strlen($qnum) < 12) {
-                                $avatarLoged = 'https://q.qlogo.cn/g?b=qq&nk='.$qnum.'&s=100';
+                                $avatarLoged = 'https://q2.qlogo.cn/g?b=qq&nk='.$qnum.'&s=100';
                             }else {
                                 $avatarLoged = 'https://cdn.v2ex.com/gravatar/' . $mdmdmd5 . '?s=80';
                             }
@@ -144,7 +144,8 @@ echo $commentClass;
 </div>
 <!-- gravatar头像 -->
 <script type="text/javascript">
-    function showAva(str) {
+    function showAva() {
+        var mailVa = document.getElementById("mail").value;
         if(window.XMLHttpRequest){
             var xhr = new XMLHttpRequest();
         }else{
@@ -157,7 +158,7 @@ echo $commentClass;
             }
         }
         //进行请求的初始化
-        xhr.open('get', '<?php $this->options->themeUrl('./show_avatar.php?n1='); ?>'+str, true);
+        xhr.open('get', '<?php $this->options->themeUrl('./show_avatar.php?n1='); ?>'+mailVa, true);
         //正式发送请求
         xhr.send();
     }
@@ -165,6 +166,11 @@ echo $commentClass;
         var getUrl = document.getElementById("url").value;
         if (getUrl == "") {
             document.getElementById("url").value = "http://";
+        }
+    }
+    window.onload = function() {
+        if ($('#mail').length > 0) {
+            showAva();
         }
     }
 </script>

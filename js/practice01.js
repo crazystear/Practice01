@@ -93,7 +93,7 @@ inheadnav.onclick = function(){
         document.getElementById('m_inheadnav').innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i>';
     }
 }
-console.log('%c 一支穿云箭，千军万马来相见！ %c 小宇博客：https://sunxyu.cn', 'color: #fadfa3; background: #030307; padding:5px', 'background: #fadfa3; padding:5px');
+console.log('%c 一支穿云箭，千军万马来相见！ %c 小宇博客：https://kisxy.com', 'color: #fadfa3; background: #030307; padding:5px', 'background: #fadfa3; padding:5px');
 // random color
 $(document).ready(function() {
     var randomlinkcolor = $(".innerlinks_items li");

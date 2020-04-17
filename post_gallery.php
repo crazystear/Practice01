@@ -1,3 +1,4 @@
+<?php $this->need('header.php'); ?>
 <div class="site-wrap">
     <div class="flex-left-gallery">
         <div class="left-side">
@@ -36,12 +37,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
+    <?php $this->need('footer.php'); ?>

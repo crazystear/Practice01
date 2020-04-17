@@ -14,17 +14,31 @@ $(function() {
         load : f_masonry,
     });
 });
+window.onload = function() {
+        f_masonry();
+    }
 </script>
 <!-- 瀑布流方法 -->
+<?php if($this->category == 'timeline' && !$this->is('index')): ?>
 <script type="text/javascript">
 function f_masonry() {
     $('#content').masonry({
         itemSelector: '.main2',
         isAnimated: true,
-        // columnWidth: 5,
+        horizontalOrder: true,
         });
     }
 </script>
+<?php else: ?>
+<script type="text/javascript">
+function f_masonry() {
+    $('#content').masonry({
+        itemSelector: '.main2',
+        isAnimated: true,
+        });
+    }
+</script>
+<?php endif; ?>
 <!-- 边栏打字效果调用 -->
 <script src="https://cdn.staticfile.org/typed.js/1.1.7/typed.min.js"></script>
 <script type="text/javascript">
@@ -57,7 +71,7 @@ function f_masonry() {
 <?php endif; ?>
 <!-- 头部全屏轮播调用 -->
 <?php if(!($this->is('post') || $this->is('page'))): ?>
-<?php if (!empty($this->options->slideImages) && in_array('ShowSlideOn', $this->options->slideImages)): ?>
+<?php if (!empty($this->options->slideImages) && in_array('ShowSlideOn', $this->options->slideImages) && !($this->is('category') && $this->category == 'timeline')): ?>
 <script type="text/javascript" src="<?php $this->options->themeUrl('/js/pageSwitch.min.js'); ?>"></script>
 <script>
     a=new pageSwitch('sections',{
@@ -93,7 +107,7 @@ for(;i<navs.length;i++){
     <div class="infoot">
         <?php if (!empty($this->options->themeCopy) && in_array('closeThemeCopy', $this->options->themeCopy)): ?><?php else: ?>
         <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">practice01</strong> Made by kisxy.com</p><?php endif; ?>
-        <p>Copyright © 2019 <a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer"><?php $this->options->beianno(); ?></a></p>
+        <p>Copyright © 2020 <a href="http://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer"><?php $this->options->beianno(); ?></a></p>
         <p>Published with Typecho</p>
     </div>
 </div></div>
@@ -114,11 +128,26 @@ for(;i<navs.length;i++){
           append: '.main2',
           hideNav: '#ajaxloadpost',
           history: false,
+          prefill: true,
           outlayer: msnry,
         });
         $grid.on('append.infiniteScroll', function( event, response, path) {
           $(".lazyload").lazyload({
             load : f_masonry,
+        });
+        var randomlinkcolor2 = $(".box .post");
+        randomlinkcolor2.each(function() {
+            var x2 = 20;
+            var y2 = 0;
+            var randcolor2 = parseInt(Math.random() * (x2 - y2 + 1) +y2);
+            $(this).addClass("randomlinkscg" + randcolor2);
+        });
+        var randomlinkcolor3 = $(".setback");
+        randomlinkcolor3.each(function() {
+            var x3 = 20;
+            var y3 = 0;
+            var randcolor3 = parseInt(Math.random() * (x3 - y3 + 1) +y3);
+            $(this).addClass("randomlinkscg" + randcolor3);
         });
         });
         $grid.on( 'last.infiniteScroll', function( event, response, path ) {

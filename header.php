@@ -48,7 +48,8 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.13.1/styles/<?php $this->options->highlightColor(); ?>.min.css" />
     <?php if(!($this->fields->aplayerurl == '' && $this->fields->aplayerthumb == '')): ?>
     <link href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-    <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script><?php endif; ?>
+    <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
+    <?php endif; ?>
     <!--[if lt IE 9]>
     <script src="//cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
     <script src="//cdnjscn.b0.upaiyun.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -65,7 +66,7 @@
     <div class="inheadnav">
         <div id="headlogo" class="headlogo"><a class="navmla2 nav_menu_li_a2" style="padding: 0;" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->cusTitle(); ?></a></div>
         <ul class="nav_menu">
-            <li class="nav_menu_li"><a class="navmla nav_menu_li_a2" href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a></li>
+            <li class="nav_menu_li"><a class="navmla nav_menu_li_a2" href="<?php $this->options->siteUrl(); ?>"><?php _e('Home'); ?></a></li>
             <?php if (!empty($this->options->sidebarCategory) && in_array('onTopNav', $this->options->sidebarCategory)): ?>
             <?php $this->widget('Widget_Metas_Category_List')->to($categorys); ?>
             <?php while($categorys->next()): ?>
@@ -114,12 +115,12 @@
         </div>
     </div>
 </div>
-<?php if (!empty($this->options->slideImages) && in_array('ShowSlideOn', $this->options->slideImages)): ?>
+<?php if (!empty($this->options->slideImages) && in_array('ShowSlideOn', $this->options->slideImages) && !($this->is('category') && $this->category == 'timeline')): ?>
     <?php if(!($this->is('post') || $this->is('page'))): ?>
         <div class="imgslide-container" style="opacity: 0;">
             <div id="container">
                 <div class="sections" id="sections">
-            <?php if(!($this->is('category'))): ?>
+            <?php if($this->is('index')): ?>
                     <?php SlideImg($this->options->SlideSortOnHome); ?>
                 </div>
                 <?php $imgnums = $this->options->slideimgnum; ?>

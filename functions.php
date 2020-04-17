@@ -40,7 +40,7 @@ function themeConfig($form) {
     array(), _t('<span style="color:#ff0000;margin-right:0px;">13.</span>轮播图显示设置，默认关闭，勾选表示开启！'));
     $form->addInput($slideImages->multiMode());
 
-    $SlideImg = new Typecho_Widget_Helper_Form_Element_Textarea('SlideImg', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">14.</span>轮播图列表（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入轮播图信息，格式：<strong>1标题,2URL地址,3轮播图片地址,4轮播分类</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>venom,https://sunxyu.cn/life/240.html,https://sunxyu.cn/usr/uploads/2018/11/894101175.jpg,home</mark></strong><br>轮播分类用于过滤要显示的轮播，建议使用英文！'));
+    $SlideImg = new Typecho_Widget_Helper_Form_Element_Textarea('SlideImg', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">14.</span>轮播图列表（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入轮播图信息，格式：<strong>1标题,2URL地址,3轮播图片地址,4轮播分类</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>venom,https://kisxy.com/life/240.html,https://kisxy.com/usr/uploads/2018/11/894101175.jpg,home</mark></strong><br>轮播分类用于过滤要显示的轮播，建议使用英文！'));
     $SlideImg->input->setAttribute('style', 'height:150px;resize:both;');
     $form->addInput($SlideImg);
 
@@ -57,7 +57,7 @@ function themeConfig($form) {
     $form->addInput($SlideImgNum2->addRule('isInteger', _t('请填入一个数字')));
 
     $fixedSidebar = new Typecho_Widget_Helper_Form_Element_Checkbox('fixedSidebar', 
-    array('fSidebar' => _t('开户页面滚动边栏固定')),
+    array('fSidebar' => _t('开启页面滚动边栏固定')),
     array(), _t('<span style="color:#ff0000;margin-right:0px;">19.</span>边栏固定，默认关闭！'));
     $form->addInput($fixedSidebar->multiMode());
 
@@ -67,7 +67,7 @@ function themeConfig($form) {
     $IndexLinksSort = new Typecho_Widget_Helper_Form_Element_Text('IndexLinksSort', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">21.</span>要显示在首页侧边栏的链接分类（支持多分类，请用英文逗号“,”分隔）'), _t('若只需显示某分类下的链接，请输入链接分类名（建议使用字母形式的分类名），<mark>留空则默认显示全部链接列表中的链接</mark>'));
     $form->addInput($IndexLinksSort);
 
-    $Links = new Typecho_Widget_Helper_Form_Element_Textarea('Links', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">22.</span>首页链接列表（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入链接信息，格式：<strong>1链接分类*,2链接名称*,3链接地址*,4链接描述</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>myself,小宇博客,https://sunxyu.cn,没有什么会永垂不朽</mark></strong><br>链接分类用于过滤要显示的链接，建议使用英文！'));
+    $Links = new Typecho_Widget_Helper_Form_Element_Textarea('Links', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">22.</span>首页链接列表（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入链接信息，格式：<strong>1链接分类*,2链接名称*,3链接地址*,4链接描述</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>myself,小宇博客,https://kisxy.com,没有什么会永垂不朽</mark></strong><br>链接分类用于过滤要显示的链接，建议使用英文！'));
     $Links->input->setAttribute('style', 'height:100px;resize:both;');
     $form->addInput($Links);
 
@@ -75,7 +75,7 @@ function themeConfig($form) {
     $innerlinkshow->input->setAttribute('style', 'height:100px;resize:both;');
     $form->addInput($innerlinkshow);
 
-    $innerlinks = new Typecho_Widget_Helper_Form_Element_Textarea('innerlinks', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">24.</span>内页页面链接列表，一行一个（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入链接信息，格式：<strong>1链接分类*,2链接名称*,3链接地址*,4链接描述,5可选参数0</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>myself,小宇博客,https://sunxyu.cn,没有什么会永垂不朽</mark></strong><br>若要使用rel="external nofollow"属性，第五个参数请输入0！例如：<br><strong><mark>myself,小宇博客,https://sunxyu.cn,没有什么会永垂不朽,0</mark></strong>'));
+    $innerlinks = new Typecho_Widget_Helper_Form_Element_Textarea('innerlinks', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">24.</span>内页页面链接列表，一行一个（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入链接信息，格式：<strong>1链接分类*,2链接名称*,3链接地址*,4链接描述,5可选参数0</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>myself,小宇博客,https://kisxy.com,没有什么会永垂不朽</mark></strong><br>若要使用rel="external nofollow"属性，第五个参数请输入0！例如：<br><strong><mark>myself,小宇博客,https://kisxy.com,没有什么会永垂不朽,0</mark></strong>'));
     $innerlinks->input->setAttribute('style', 'height:500px;resize:both;');
     $form->addInput($innerlinks);
 
@@ -137,8 +137,13 @@ function themeConfig($form) {
     'vs' => _t('vs'),
     'github' => _t('github'),
     'atom-one-light' => _t('atom-one-light')),
-    'default', _t('36.选择代码高亮配色方案，默认为default方案！'), _t('配色效果参考：https://highlightjs.org/static/demo/'));
+    'default', _t('<span style="color:#ff0000;margin-right:0px;">36.</span>选择代码高亮配色方案，默认为default方案！'), _t('配色效果参考：https://highlightjs.org/static/demo/'));
     $form->addInput($highlightColor);
+
+    $showPostAlbum = new Typecho_Widget_Helper_Form_Element_Checkbox('showPostAlbum',
+    array('close' => _t('关闭文章列表的封面形式！')),
+    array(''), _t('<span style="color:#ff0000;margin-right:0px;">37.</span>文章中图片若超过3张时，在列表中将会以封面形式显示该篇文章，勾选此项则关闭，将以正常缩略图方式显示！'));
+    $form->addInput($showPostAlbum->multiMode());
 
     include("theme_config.php");
 }
@@ -162,7 +167,7 @@ function get_post_view($archive)
             $views = explode(',', $views);
         }
     if(!in_array($cid,$views)){
-       $db->query($db->update('table.contents')->rows(array('views' => (int) $row['views'] + 1))->where('cid = ?', $cid));
+        $db->query($db->update('table.contents')->rows(array('views' => (int) $row['views'] + 1))->where('cid = ?', $cid));
             array_push($views, $cid);
             $views = implode(',', $views);
             Typecho_Cookie::set('extend_contents_views', $views);
@@ -311,6 +316,7 @@ function get_commentReply_at($coid)
 // 替换文章内容方法
 function themeInit($archive)
     {
+        Helper::options()->commentsMaxNestingLevels = 99;
         if ($archive->is('single'))
         {
             $archive->content = image_class_replace($archive->content);

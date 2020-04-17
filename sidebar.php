@@ -1,7 +1,21 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <div class="flex-right">
 	<div class="rightbar" id="rightbar">
-		<?php if(!($this->is('page'))): ?>
+		<?php
+		$this->widget('Widget_Archive@index', 'pageSize=1&type=category', 'slug=timeline')->to($timeline);
+		while($timeline->next()): ?>
+		        <div class="side-about" style="margin-bottom: 20px;border-radius: 5px;">
+		    	<div class="about-me">
+		    		<p><i style="color: #ff0000;" class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Timeline：<?php $timeline->title(); ?></p>
+		    		<p><a class="cusMore" href="<?php $this->widget('Widget_Metas_Category_List')->to($categorys); ?><?php while($categorys->next()): ?><?php $getCateName =  $categorys->slug; if($getCateName == 'timeline'): ?><?php echo $categorys->permalink; ?><?php endif; ?><?php endwhile; ?>" title="查看更多..."><i class="fa fa-bars" aria-hidden="true"></i></a></p>
+		    	</div>
+		    	<div class="desc2">
+			    	<span class="tl_new"><?php $timeline->content(); ?></span>
+			    	<span class="tl_time"><?php _e('updated on :'); ?> <time datetime="<?php $timeline->date('c'); ?>" itemprop="datePublished"><?php $timeline->date(); ?></time></span>
+		    	</div>
+		    </div>
+		<?php endwhile; ?>
+		<!-- <?php if(!($this->is('page'))): ?>
 		<?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
 			<?php while($pages->next()): ?>
 				<?php if ($pages->template == 'page-status.php'): ?>
@@ -25,7 +39,7 @@
 				    <?php endif; ?>
 				<?php endif; ?>
 			<?php endwhile; ?>
-		<?php endif; ?>
+		<?php endif; ?> -->
 		<div class="side-about">
 	    	<div class="about-me"><p><i style="color: #ff0000;" class="fa fa-bookmark" aria-hidden="true"></i>&nbsp;&nbsp;关于博主</p></div>
 	    	<div>
@@ -70,22 +84,21 @@
 						<?php endif; ?>
 					</a>
 				</div>
-				<div class="email">
+				<!-- <div class="email">
 					<a class="email-a" href="<?php $this->options->feedUrl(); ?>" target="_blank">
 						<i class="fa fa-feed" aria-hidden="true"></i>
 					</a>
-				</div>
+				</div> -->
 			</div>
 	    </div>
-
-		
-
 	<?php if(!($this->is('index'))): ?>
 		<div class="newposts">
 	    	<div class="newposts_title"><p><i style="color: #ff0000;" class="fa fa-fire" aria-hidden="true"></i>&nbsp;&nbsp;近期文章</p></div>
 	    	<div class="newposts_items">
 	    		<ul>
-					<?php $this->widget('Widget_Contents_Post_Recent', 'pageSize=10&type=category')->parse('<li><a href="{permalink}"><i style="color:rgba(77, 136, 255,.8);" class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;{title}</a></li>'); ?>
+					<?php 
+						$this->widget('Widget_Contents_Post_Recent', 'pageSize=10&type=category')->parse('<li><a href="{permalink}" target="_blank"><i style="color:rgba(77, 136, 255,.8);" class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;{title}</a></li>'); 
+					?>
 				</ul>
 	    	</div>
 	    </div>

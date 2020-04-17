@@ -4,8 +4,8 @@
  * 
  * @package practice01
  * @author 小宇
- * @version 1.0.5
- * @link https://sunxyu.cn
+ * @version 1.0.6
+ * @link https://kisxy.com
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     $this->need('header.php');
@@ -18,7 +18,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                     <?php while($this->next()): ?>
                         <?php
                             $getCate = $this->category;
-                            if ($getCate != 'gallery') {
+                            if ($getCate != 'gallery' && $getCate != 'timeline') {
                                 include("post_common.php");
                             }
                         ?>

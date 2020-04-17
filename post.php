@@ -1,10 +1,10 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-    $this->need('header.php');
 ?>
-<?php if($this->fields->postGallery == 'isGallery'): ?>                             
-    <?php include("post_gallery.php") ?>
+<?php if($this->category == 'gallery'): ?>                             
+    <?php include("post_gallery.php"); ?>
 <?php else: ?>
+<?php $this->need('header.php'); ?>
 <div class="site-wrap">
     <div class="flex-left">
         <div class="left-side">
@@ -56,5 +56,5 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         </div>
     </div>
     <?php $this->need('sidebar.php'); ?>
-    <?php endif; ?>
     <?php $this->need('footer.php'); ?>
+    <?php endif; ?>

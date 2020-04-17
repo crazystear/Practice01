@@ -43,7 +43,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 									foreach ($counts as $count) {
                                       $qnum = str_replace('@qq.com', '', $count['mail']);
                                       if (strstr($count['mail'], "qq.com") && is_numeric($qnum) && strlen($qnum) > 4 && strlen($qnum) < 12) {
-                                          $avatar = 'https://q.qlogo.cn/g?b=qq&nk='.$qnum.'&s=100';
+                                          $avatar = 'https://q2.qlogo.cn/g?b=qq&nk='.$qnum.'&s=100';
                                       }else{
                                           $avatar = $avatar_path . md5(strtolower($count['mail'])) . '?s=65';
                                       }
