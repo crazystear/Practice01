@@ -145,6 +145,9 @@ function themeConfig($form) {
     array(''), _t('<span style="color:#ff0000;margin-right:0px;">37.</span>文章中图片若超过3张时，在列表中将会以封面形式显示该篇文章，勾选此项则关闭，将以正常缩略图方式显示！'));
     $form->addInput($showPostAlbum->multiMode());
 
+    $ShowTimeline = new Typecho_Widget_Helper_Form_Element_Checkbox('ShowTimeline', array('sidebarTimeline' => _t('侧边栏调用时间轴第一篇文章')), NULL, _t('<span style="color:#ff0000;margin-right:0px;">38.</span>勾选后侧边栏第一个位置将显示时间轴第一篇文章内容'));
+    $form->addInput($ShowTimeline->multiMode());
+
     include("theme_config.php");
 }
 //get_post_view($this)

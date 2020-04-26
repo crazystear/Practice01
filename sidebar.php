@@ -1,6 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <div class="flex-right">
 	<div class="rightbar" id="rightbar">
+		<?php if (!empty($this->options->ShowTimeline) && in_array('sidebarTimeline', $this->options->ShowTimeline)): ?>
 		<?php
 		$this->widget('Widget_Archive@index', 'pageSize=1&type=category', 'slug=timeline')->to($timeline);
 		while($timeline->next()): ?>
@@ -15,6 +16,7 @@
 		    	</div>
 		    </div>
 		<?php endwhile; ?>
+		<?php endif; ?>
 		<!-- <?php if(!($this->is('page'))): ?>
 		<?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
 			<?php while($pages->next()): ?>
@@ -91,7 +93,7 @@
 				</div> -->
 			</div>
 	    </div>
-	<?php if(!($this->is('index'))): ?>
+	<!-- <?php if(!($this->is('index'))): ?>
 		<div class="newposts">
 	    	<div class="newposts_title"><p><i style="color: #ff0000;" class="fa fa-fire" aria-hidden="true"></i>&nbsp;&nbsp;近期文章</p></div>
 	    	<div class="newposts_items">
@@ -102,7 +104,7 @@
 				</ul>
 	    	</div>
 	    </div>
-	<?php endif; ?>
+	<?php endif; ?> -->
 		<div class="newcomments">
 	    	<div class="newcomments_title"><p><i style="color: #ff0000" class="fa fa-commenting" aria-hidden="true"></i>&nbsp;&nbsp;近期评论</p></div>
 	    	<div class="newcomments_items">
