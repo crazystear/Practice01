@@ -1,5 +1,8 @@
+<?php
+    $test666 = mt_rand(10000000,99999999);
+?>
 <div class="aplayerdemo">
-    <div id="player1">
+    <div id="<?php echo $test666; ?>">
         <pre class="aplayer-lrc-content">
     </pre>
 </div>
@@ -7,7 +10,7 @@
 <script>
     var ap = new APlayer
         ({
-            element: document.getElementById('player1'),
+            element: document.getElementById('<?php echo $test666; ?>'),
             narrow: false,
             autoplay: false,
             showlrc: false,
