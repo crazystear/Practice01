@@ -3,6 +3,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     $this->need('header.php');
 ?>
 <script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="<?php $this->options->themeUrl('/layer/layer.js'); ?>"></script>
 <link href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
 <style type="text/css">
@@ -43,6 +44,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     .t_title:hover {
         color: rgb(160, 36, 15);
         font-weight: bold;
+        cursor: pointer;
     }
     .tCom p {
         cursor: pointer;
@@ -91,6 +93,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     .respond {
         display: none;
     }
+    .tl_title_l {
+        text-align: right;
+    }
     @media screen and (max-width: 767px) {
         .timeline_center:before {
             left: 20px;
@@ -115,6 +120,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         .mark_right:before {
             left: 13px;
         }
+        .tl_title_l {
+            text-align: left;
+        }
     }
 </style>
 <div class="site-wrap">
@@ -125,13 +133,17 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                     <?php $tCount = 0; while($this->next()): ?>
                     <?php if($tCount%2 == 0): ?>
                         <div class="main_timeline main2 tl_left">
-                        <div style="padding: 10px 0;text-align: right;">
-                            <a style="display: inline;color: #666;" href="<?php $this->permalink() ?>" target="_blank"><span class="t_title"><?php $this->title() ?></span></a>
+                        <div class="tl_title_l" style="padding: 10px 0;">
+                            <!-- <a style="display: inline;color: #666;" href="<?php $this->permalink() ?>" target="_blank"> -->
+                                <span id="lay<?php $this->cid(); ?>" class="t_title"><?php $this->title() ?></span>
+                            <!-- </a> -->
                         </div>
                     <?php else: ?>
                         <div class="main_timeline main2 tl_right">
                         <div style="padding: 10px 0;">
-                            <a style="display: inline;color: #666;" href="<?php $this->permalink() ?>" target="_blank"><span class="t_title"><?php $this->title() ?></span></a>
+                            <!-- <a style="display: inline;color: #666;" href="<?php $this->permalink() ?>" target="_blank"> -->
+                                <span id="lay<?php $this->cid(); ?>" class="t_title"><?php $this->title() ?></span>
+                            <!-- </a> -->
                         </div>
                     <?php endif; ?>
                             <div class="act_timeline">
@@ -183,6 +195,27 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                             }
                                         });
                                         }); 
+                                    </script>
+                                    <script>
+                                        ;!function(){
+                                        $('#lay<?php $this->cid(); ?>').on('click', function(){
+                                            layer.open({
+                                              type: 2,
+                                              title: '<?php $this->title() ?>',
+                                              maxmin: true,
+                                              area: ['800px', '500px'],
+                                              content: '<?php $this->permalink() ?>',
+                                              shade: 0.5,
+                                              shadeClose: true,
+                                            });
+                                          });
+                                        }();
+                                        $('#lay<?php $this->cid(); ?>').mouseover(function(){
+                                            layer.tips('有话说？请点我吧！', '#lay<?php $this->cid(); ?>', {
+                                              tips: [1, '#000'],
+                                              time: 1000
+                                            });
+                                        });
                                     </script>
                                 </article>
                             </div>

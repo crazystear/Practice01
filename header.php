@@ -58,6 +58,12 @@
     <?php $this->header(); ?>
     <?php if(!($this->options->tongji == '')): ?><?php $this->options->tongji(); ?><?php endif; ?>
 </head>
+
+<?php if($this->is('index')): ?>
+<body style="background: #000;">
+<?php elseif(($this->is('post') && $this->category == 'timeline')): ?>
+<body>
+<?php else: ?>
 <body>
 <!--[if lt IE 8]>
     <div class="browsehappy" role="dialog"><?php _e('当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>'); ?>.</div>
@@ -169,4 +175,4 @@
             <p><i style="color: #ff0000;" class="fa fa-heart" aria-hidden="true"></i>&nbsp;&nbsp;<span id="typed" style="word-wrap: break-word;word-break: break-all;overflow: hidden;font-size: 12px;"></span>&nbsp;&nbsp;<i style="color: #ff0000;" class="fa fa-heart" aria-hidden="true"></i></p>
         </div>
     </div>
-    
+<?php endif; ?>

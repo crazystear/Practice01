@@ -202,13 +202,13 @@ form#search {
 }
 input#s {
 	flex-grow: 1;
-	border: none;
 	padding: 10px;
 	outline: none;
 	opacity: .8;
 	text-align: center;
 	font-weight: bold;
 	border-radius: 5px 0 0 5px;
+	border: 1px solid rgba(36,137,255,.8);
 }
 button.submit{
 	border: none;
@@ -1231,7 +1231,7 @@ cite.fn {
 	flex-grow: 1;
 }
 input::-webkit-input-placeholder {
-	color: #bbb;
+	color: rgba(36,137,255,.8);
 }
 textarea::-webkit-input-placeholder {
 	color: #bbb;

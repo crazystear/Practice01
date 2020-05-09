@@ -3,6 +3,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 ?>
 <?php if($this->category == 'gallery'): ?>                             
     <?php include("post_gallery.php"); ?>
+<?php elseif($this->category == 'timeline'): ?>
+    <?php include("post_timeline.php"); ?>
 <?php else: ?>
 <?php $this->need('header.php'); ?>
 <div class="site-wrap">
