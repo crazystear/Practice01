@@ -10,7 +10,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     $this->need('header.php');
 ?>
-<?php if($this->is('index')): ?>
+<?php if($this->is('index') && !empty($this->options->SimpleHomeOn) && in_array('simpleHome', $this->options->SimpleHomeOn)): ?>
     <style type="text/css">
         .simple_home {
             width: 100%;

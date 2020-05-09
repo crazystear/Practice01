@@ -148,6 +148,9 @@ function themeConfig($form) {
     $ShowTimeline = new Typecho_Widget_Helper_Form_Element_Checkbox('ShowTimeline', array('sidebarTimeline' => _t('侧边栏调用时间轴第一篇文章')), NULL, _t('<span style="color:#ff0000;margin-right:0px;">38.</span>勾选后侧边栏第一个位置将显示时间轴第一篇文章内容'));
     $form->addInput($ShowTimeline->multiMode());
 
+    $SimpleHomeOn = new Typecho_Widget_Helper_Form_Element_Checkbox('SimpleHomeOn', array('simpleHome' => _t('开启首页简洁模式')), NULL, _t('<span style="color:#ff0000;margin-right:0px;">39.</span>勾选后首页将只显示时间轴的第一篇文章的内容，作为简洁模式！勾选前请确认已添加了时间轴分类并已经有发布了相应的内容！'));
+    $form->addInput($SimpleHomeOn->multiMode());
+
     include("theme_config.php");
 }
 //get_post_view($this)

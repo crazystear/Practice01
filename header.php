@@ -59,7 +59,7 @@
     <?php if(!($this->options->tongji == '')): ?><?php $this->options->tongji(); ?><?php endif; ?>
 </head>
 
-<?php if($this->is('index')): ?>
+<?php if($this->is('index') && !empty($this->options->SimpleHomeOn) && in_array('simpleHome', $this->options->SimpleHomeOn)): ?>
 <body style="background: #000;">
 <?php elseif(($this->is('post') && $this->category == 'timeline')): ?>
 <body>

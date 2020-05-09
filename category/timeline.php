@@ -135,14 +135,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                         <div class="main_timeline main2 tl_left">
                         <div class="tl_title_l" style="padding: 10px 0;">
                             <!-- <a style="display: inline;color: #666;" href="<?php $this->permalink() ?>" target="_blank"> -->
-                                <span id="lay<?php $this->cid(); ?>" class="t_title"><?php $this->title() ?></span>
+                                <span id="practice01<?php $this->cid(); ?>" class="t_title"><?php $this->title() ?></span>
                             <!-- </a> -->
                         </div>
                     <?php else: ?>
                         <div class="main_timeline main2 tl_right">
                         <div style="padding: 10px 0;">
                             <!-- <a style="display: inline;color: #666;" href="<?php $this->permalink() ?>" target="_blank"> -->
-                                <span id="lay<?php $this->cid(); ?>" class="t_title"><?php $this->title() ?></span>
+                                <span id="practice01<?php $this->cid(); ?>" class="t_title"><?php $this->title() ?></span>
                             <!-- </a> -->
                         </div>
                     <?php endif; ?>
@@ -198,7 +198,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                     </script>
                                     <script>
                                         ;!function(){
-                                        $('#lay<?php $this->cid(); ?>').on('click', function(){
+                                        $('#practice01<?php $this->cid(); ?>').on('click', function(){
                                             layer.open({
                                               type: 2,
                                               title: '<?php $this->title() ?>',
@@ -210,8 +210,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                             });
                                           });
                                         }();
-                                        $('#lay<?php $this->cid(); ?>').mouseover(function(){
-                                            layer.tips('有话说？请点我吧！', '#lay<?php $this->cid(); ?>', {
+                                        $('#practice01<?php $this->cid(); ?>').mouseover(function(){
+                                            layer.tips('有话说？请点我吧！', '#practice01<?php $this->cid(); ?>', {
                                               tips: [1, '#000'],
                                               time: 1000
                                             });
