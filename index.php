@@ -21,7 +21,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         .simple_home_span p {
             font-size: 20px;
             line-height: 26px;
-            font-family: '华文行楷';
+            font-family: '华文行楷', "LingWai TC";
             color: #ccc;
         }
         .simple_home_a {
@@ -29,7 +29,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             font-weight: bold;
             font-size: 26px;
             margin-top: 20px;
-            font-family: '华文隶书';
+            font-family: '华文隶书', "LingWai TC";
         }
         .simple_home_span img {
             width: 100%;
