@@ -12,11 +12,23 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 ?>
 <?php if($this->is('index') && !empty($this->options->SimpleHomeOn) && in_array('simpleHome', $this->options->SimpleHomeOn)): ?>
     <style type="text/css">
-        .simple_home {
+        html,body {
             width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .simple_home {
+            width: 50%;
+            margin: 0 auto;
             text-align: center;
-            position: absolute;
-            top: 30%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-60%);
+            -ms-transform: translateY(-60%);
+            -webkit-transform: translateY(-60%);
+            -moz-transform: translateY(-60%);
+            -o-transform: translateY(-60%);
         }
         .simple_home_span p {
             font-size: 20px;
@@ -35,6 +47,25 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             width: 100%;
             max-width: 600px;
             height: auto;
+            filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
+            opacity: 0.8;
+            transition: all 1s ease;
+            -ms-transition: all 1s ease;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+        }
+        .simple_home_span img:hover {
+            filter: grayscale(0%);
+            -ms-filter: grayscale(0%);
+            -webkit-filter: grayscale(0%);
+            -moz-filter: grayscale(0%);
+            -o-filter: grayscale(0%);
+            opacity: 1;
         }
     </style>
 

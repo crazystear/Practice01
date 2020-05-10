@@ -16,7 +16,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 <div id="content" class="content">
                     <div class="post_content main2">
                         <div class="pcontent">
-                            <h1 class="post_entry"><a href="<?php $this->permalink() ?>">读者墙&留言板</a></h1>
+                            <h1 class="post_entry"><a href="<?php $this->permalink() ?>">访客墙&留言板</a></h1>
                             <p class="post_meta">
                                 <span class="head_meta">Template&nbsp;:&nbsp;Message Board</span>
                                 <span class="head_meta">Views&nbsp;:&nbsp;<?php get_post_view($this) ?></span>

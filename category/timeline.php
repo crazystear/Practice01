@@ -96,6 +96,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     .tl_title_l {
         text-align: right;
     }
+    .timeline_content > p > a {
+        margin-bottom: -12px;
+    }
     @media screen and (max-width: 767px) {
         .timeline_center:before {
             left: 20px;
