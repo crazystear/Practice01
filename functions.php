@@ -225,11 +225,11 @@ function themeFields($layout)
         $aplayerthumb->input->setAttribute('class', 'w-100');
         $layout->addItem($aplayerthumb);
 
-        $videorurl = new Typecho_Widget_Helper_Form_Element_Text('videorurl', NULL, NULL, _t('视频URL地址'), _t('输入可以在线播放的视频URL地址'));
+        $videorurl = new Typecho_Widget_Helper_Form_Element_Text('videorurl', NULL, NULL, _t('视频URL地址（仅适用时间轴分类）'), _t('输入可以在线播放的视频URL地址'));
         $videorurl->input->setAttribute('class', 'w-100');
         $layout->addItem($videorurl);
 
-        $videoname = new Typecho_Widget_Helper_Form_Element_Text('videoname', NULL, NULL, _t('视频标题'), _t(''));
+        $videoname = new Typecho_Widget_Helper_Form_Element_Text('videoname', NULL, NULL, _t('视频标题（仅适用时间轴分类）'), _t(''));
         $videoname->input->setAttribute('class', 'w-100');
         $layout->addItem($videoname);
     }
