@@ -26,11 +26,18 @@
                                 <span>Posted on&nbsp;:&nbsp;<time style="font-size: 12px;" datetime="<?php $this->date('Y-m-d'); ?>"><?php $this->date(); ?></time></span>
                             </p>
                             <div class="post_body">
-                                    <?php $this->content(); ?>
+                                    <?php
+                                        $t_content = $this->content;
+                                        $t_content = preg_replace('/(\[addvideo2\])(http:|https:)(.*?),(http:|https:)(.*?),(.*?)(\[\/addvideo2\])/i','<a data-fancybox data-width="640" data-height="360" href="$2$3" data-caption=""><img data-original="$4$5" class="lazyload" src="'.$loadingPicAddr.'" alt="" title=""></a>', $t_content);
+                                        echo $t_content; 
+                                    ?>
+                                    <!-- <?php if(!($this->fields->videorurl == '' && $this->fields->videoname == '' && $this->fields->videothumb == '')): ?>
+                                        <?php $this->need('videoplayer.php'); ?>
+                                    <?php endif; ?> -->
                             </div>
-                            <?php if(!($this->fields->aplayerurl == '' && $this->fields->aplayerthumb == '')): ?>
+                            <!-- <?php if(!($this->fields->aplayerurl == '' && $this->fields->aplayerthumb == '')): ?>
                                 <?php $this->need('aplayer.php'); ?>
-                            <?php endif; ?>
+                            <?php endif; ?> -->
                             <div class="post_comments">
                                 <div class="comments_body">
                                     <?php $this->need('comments.php'); ?>

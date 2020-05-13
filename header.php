@@ -98,7 +98,7 @@
             <li class="m_menu_1_li"><a class="m_menu_1_li_a" href="<?php $categorys->permalink(); ?>" title="<?php $categorys->name(); ?>"><?php $categorys->name(); ?></a></li>
             <?php endwhile; ?>
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-            <?php while($pages->next()): ?>
+            <?php while($pages->next()): ?><?php if(!($pages->template == 'page-status.php')): ?>
             <li class="m_menu_1_li"><a class="m_menu_1_li_a" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a></li>
             <?php endwhile; ?>
         </div>

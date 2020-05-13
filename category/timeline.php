@@ -44,7 +44,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     .t_title:hover {
         color: rgb(160, 36, 15);
         font-weight: bold;
-        cursor: pointer;
     }
     .tCom p {
         cursor: pointer;
@@ -59,7 +58,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     }
     .aplayerdemo {
         width: 100%;
-        margin: 0;
+        margin: 0 0 -12px 0;
         padding: 5px;
     }
     .aplayerdemo>div {
@@ -98,6 +97,10 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     }
     .timeline_content > p > a {
         margin-bottom: -12px;
+    }
+    .timeline_content img {
+        max-width: 100%;
+        box-shadow: 0 3px 7px rgba(0,0,0,.15);
     }
     @media screen and (max-width: 767px) {
         .timeline_center:before {
@@ -138,14 +141,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                         <div class="main_timeline main2 tl_left">
                         <div class="tl_title_l" style="padding: 10px 0;">
                             <!-- <a style="display: inline;color: #666;" href="<?php $this->permalink() ?>" target="_blank"> -->
-                                <span id="practice01<?php $this->cid(); ?>" class="t_title"><?php $this->title() ?></span>
+                                <span class="t_title"><i class="fa fa-fire" aria-hidden="true"></i>&nbsp;<?php $this->title() ?></span>
                             <!-- </a> -->
                         </div>
                     <?php else: ?>
                         <div class="main_timeline main2 tl_right">
                         <div style="padding: 10px 0;">
                             <!-- <a style="display: inline;color: #666;" href="<?php $this->permalink() ?>" target="_blank"> -->
-                                <span id="practice01<?php $this->cid(); ?>" class="t_title"><?php $this->title() ?></span>
+                                <span class="t_title"><i class="fa fa-fire" aria-hidden="true"></i>&nbsp;<?php $this->title() ?></span>
                             <!-- </a> -->
                         </div>
                     <?php endif; ?>
@@ -159,6 +162,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                         <?php if(!($this->fields->aplayerurl == '' && $this->fields->aplayerthumb == '')): ?>
                                             <?php $this->need('aplayer.php'); ?>
                                         <?php endif; ?>
+                                        <?php if(!($this->fields->videorurl == '' && $this->fields->videoname == '')): ?>
+                                            <?php $this->need('videoplayer.php'); ?>
+                                        <?php endif; ?>
                                         <?php
                                             $t_content = $this->content;
                                             $t_content = preg_replace('/<img src="(http:|https:)(.*?)(.jpg|.png|.gif|.jpeg)" alt="(.*?)"(.*?)>/i','<a href="$1$2$3" data-fancybox="images" data-caption="$4"><img src="$1$2$3" alt="$4" title="$4"></a>', $t_content);
@@ -171,8 +177,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                             <p><?php $this->commentsNum('0','1','%d'); ?>&nbsp;Comments</p>
                                         </div>
                                     </div>
-                                    <div id="<?php echo $this->cid.'Practice01'; ?>" class="tlcombody"></div>
-                                    <script type="text/javascript">
+                                    <!-- <div id="<?php echo $this->cid.'Practice01'; ?>" class="tlcombody"></div> -->
+                                    <!-- <script type="text/javascript">
                                         $(document).ready(function(){
                                           $("#<?php $this->cid(); ?>").click(function(){
                                             if (!($('div').is('.<?php $this->cid(); ?>'))) {
@@ -198,23 +204,41 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                             }
                                         });
                                         }); 
-                                    </script>
+                                    </script> -->
                                     <script>
-                                        ;!function(){
-                                        $('#practice01<?php $this->cid(); ?>').on('click', function(){
-                                            layer.open({
-                                              type: 2,
-                                              title: '<?php $this->title() ?>',
-                                              maxmin: true,
-                                              area: ['800px', '500px'],
-                                              content: '<?php $this->permalink() ?>',
-                                              shade: 0.5,
-                                              shadeClose: true,
-                                            });
-                                          });
-                                        }();
-                                        $('#practice01<?php $this->cid(); ?>').mouseover(function(){
-                                            layer.tips('有话说？请点我吧！', '#practice01<?php $this->cid(); ?>', {
+                                        var wd = document.body.clientWidth;
+                                        var wd2 = '800';
+                                            if (parseInt(wd) < parseInt(wd2)) {
+                                            ;!function(){
+                                            $('#<?php $this->cid(); ?>').on('click', function(){
+                                                layer.open({
+                                                  type: 2,
+                                                  title: '<i class="fa fa-fire" aria-hidden="true"></i>&nbsp;<?php $this->title() ?>',
+                                                  maxmin: true,
+                                                  area: ['95%', '500px'],
+                                                  content: '<?php $this->permalink() ?>',
+                                                  shade: 0.5,
+                                                  shadeClose: true,
+                                                });
+                                              });
+                                            }();
+                                        } else {
+                                            ;!function(){
+                                            $('#<?php $this->cid(); ?>').on('click', function(){
+                                                layer.open({
+                                                  type: 2,
+                                                  title: '<i class="fa fa-fire" aria-hidden="true"></i>&nbsp;<?php $this->title() ?>',
+                                                  maxmin: true,
+                                                  area: ['800px', '500px'],
+                                                  content: '<?php $this->permalink() ?>',
+                                                  shade: 0.5,
+                                                  shadeClose: true,
+                                                });
+                                              });
+                                            }();
+                                        }
+                                        $('#<?php $this->cid(); ?>').mouseover(function(){
+                                            layer.tips('有话说？请点我吧！', '#<?php $this->cid(); ?>', {
                                               tips: [1, '#000'],
                                               time: 1000
                                             });
