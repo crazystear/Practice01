@@ -100,7 +100,7 @@
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
             <?php while($pages->next()): ?><?php if(!($pages->template == 'page-status.php')): ?>
             <li class="m_menu_1_li"><a class="m_menu_1_li_a" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a></li>
-            <?php endwhile; ?>
+            <?php endif; ?><?php endwhile; ?>
         </div>
         <div class="m_logo">
             <a class="m_logo_a" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->cusTitle(); ?></a>
