@@ -64,19 +64,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     .aplayerdemo>div {
         box-shadow: none;
     }
-    .sentences {
-        margin-top: 76px;
-    }
-    .headnav {
-        background: #fff;
-    }
-    .nav_menu_li_a2 {
-        color: #000;
-    }
-    .nav_menu_li_a2:hover {
-        background: #000;
-        color: #fff;
-    }
     .tl_left {
         padding: 0px 20px 0px 10px;
         margin-bottom: 70px;
@@ -100,7 +87,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     }
     .timeline_content img {
         max-width: 100%;
-        box-shadow: 0 3px 7px rgba(0,0,0,.15);
     }
     @media screen and (max-width: 767px) {
         .timeline_center:before {

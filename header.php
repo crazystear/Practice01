@@ -121,26 +121,29 @@
         </div>
     </div>
 </div>
-<?php if (!empty($this->options->slideImages) && in_array('ShowSlideOn', $this->options->slideImages) && !($this->is('category') && $this->category == 'timeline')): ?>
+<?php if (!empty($this->options->slideImages) && in_array('ShowSlideOn', $this->options->slideImages)): ?>
     <?php if(!($this->is('post') || $this->is('page'))): ?>
         <div class="imgslide-container" style="opacity: 0;">
             <div id="container">
                 <div class="sections" id="sections">
             <?php if($this->is('index')): ?>
-                    <?php SlideImg($this->options->SlideSortOnHome); ?>
+                    <?php SlideImg('home'); ?>
                 </div>
-                <?php $imgnums = $this->options->slideimgnum; ?>
             <?php endif; ?>
             <?php if($this->is('category')): ?>
-                    <?php SlideImg($this->options->SlideSortOnCategory); ?>
+                    <?php SlideImg($this->category); ?>
                 </div>
-                <?php $imgnums = $this->options->slideimgnum2; ?>
             <?php endif; ?>
-                <div id="navs">
-                        <?php for($i=0;$i<$imgnums;$i++) { ?>
-                            <a href="javascript:;"></a>
-                        <?php } ?>
-                </div>
+                <div id="navs"></div>
+            <script>
+                var getSlideCount = document.getElementsByClassName("section").length;
+                var pullCon = "";
+                var i9;
+                for (i9 = 0; i9 < getSlideCount; i9++) {
+                    pullCon += '<a href="javascript:;"></a>';
+                }
+                document.getElementById("navs").innerHTML = pullCon;
+            </script>
             </div>
         </div>
     <?php endif; ?>

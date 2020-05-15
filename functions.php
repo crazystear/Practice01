@@ -40,85 +40,73 @@ function themeConfig($form) {
     array(), _t('<span style="color:#ff0000;margin-right:0px;">13.</span>轮播图显示设置，默认关闭，勾选表示开启！'));
     $form->addInput($slideImages->multiMode());
 
-    $SlideImg = new Typecho_Widget_Helper_Form_Element_Textarea('SlideImg', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">14.</span>轮播图列表（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入轮播图信息，格式：<strong>1标题,2URL地址,3轮播图片地址,4轮播分类</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>venom,https://kisxy.com/life/240.html,https://kisxy.com/usr/uploads/2018/11/894101175.jpg,home</mark></strong><br>轮播分类用于过滤要显示的轮播，建议使用英文！'));
+    $SlideImg = new Typecho_Widget_Helper_Form_Element_Textarea('SlideImg', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">14.</span>轮播图列表（注意：切换主题会被清空，注意备份！使用方法看下方描述！）'), _t('按照格式输入轮播图信息，格式：<strong>1-标题,2-URL地址,3-轮播图片地址,4-要在哪个分类中显示，填写你分类目录的缩略名</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>venom,https://kisxy.com/life/240.html,https://kisxy.com/usr/uploads/2018/11/894101175.jpg,home</mark></strong><br>home表示显示在首页显示的轮播<br><strong><mark>venom,https://kisxy.com/life/240.html,https://kisxy.com/usr/uploads/2018/11/894101175.jpg,timeline</mark></strong><br>timeline表示要在时间轴分类显示的轮播<br><strong><mark>venom,https://kisxy.com/life/240.html,https://kisxy.com/usr/uploads/2018/11/894101175.jpg,all</mark></strong><br>all表示要在首页及每个分类页面显示的轮播'));
     $SlideImg->input->setAttribute('style', 'height:150px;resize:both;');
     $form->addInput($SlideImg);
 
-    $SlideSortOnHome = new Typecho_Widget_Helper_Form_Element_Text('SlideSortOnHome', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">15.</span>首页轮播分类（支持多分类，请用英文逗号“,”分隔）'), _t('若只需显示某分类下的轮播，请输入轮播分类名（建议使用字母形式的分类名），<mark>留空则默认显示全部轮播图列表中的轮播</mark>'));
-    $form->addInput($SlideSortOnHome);
-
-    $SlideImgNum = new Typecho_Widget_Helper_Form_Element_Text('slideimgnum', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">16.</span>【必填】要显示在首页的轮播图数量，用于控制轮播导航条数量（填数字即可，例如：3）'), _t(''));
-    $form->addInput($SlideImgNum->addRule('isInteger', _t('请填入一个数字')));
-
-    $SlideSortOnCategory = new Typecho_Widget_Helper_Form_Element_Text('SlideSortOnCategory', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">17.</span>分类页面轮播分类（支持多分类，请用英文逗号“,”分隔）'), _t('若只需显示某分类下的轮播，请输入轮播分类名（建议使用字母形式的分类名），<mark>留空则默认显示全部轮播图列表中的轮播</mark>'));
-    $form->addInput($SlideSortOnCategory);
-
-    $SlideImgNum2 = new Typecho_Widget_Helper_Form_Element_Text('slideimgnum2', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">18.</span>【必填】要显示在分类页面的轮播图数量，用于控制轮播导航条数量（填数字即可，例如：3）'), _t(''));
-    $form->addInput($SlideImgNum2->addRule('isInteger', _t('请填入一个数字')));
-
     $fixedSidebar = new Typecho_Widget_Helper_Form_Element_Checkbox('fixedSidebar', 
     array('fSidebar' => _t('开启页面滚动边栏固定')),
-    array(), _t('<span style="color:#ff0000;margin-right:0px;">19.</span>边栏固定，默认关闭！'));
+    array(), _t('<span style="color:#ff0000;margin-right:0px;">15.</span>边栏固定，默认关闭！'));
     $form->addInput($fixedSidebar->multiMode());
 
-    $ShowLinks = new Typecho_Widget_Helper_Form_Element_Checkbox('ShowLinks', array('sidebar' => _t('显示首页友情链接（在首页侧边栏显示）')), NULL, _t('<span style="color:#ff0000;margin-right:0px;">20.</span>显示友链，勾选后请在链接列表中按格式输入链接信息即可'));
+    $ShowLinks = new Typecho_Widget_Helper_Form_Element_Checkbox('ShowLinks', array('sidebar' => _t('显示首页友情链接（在首页侧边栏显示）')), NULL, _t('<span style="color:#ff0000;margin-right:0px;">16.</span>显示友链，勾选后请在链接列表中按格式输入链接信息即可'));
     $form->addInput($ShowLinks->multiMode());
 
-    $IndexLinksSort = new Typecho_Widget_Helper_Form_Element_Text('IndexLinksSort', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">21.</span>要显示在首页侧边栏的链接分类（支持多分类，请用英文逗号“,”分隔）'), _t('若只需显示某分类下的链接，请输入链接分类名（建议使用字母形式的分类名），<mark>留空则默认显示全部链接列表中的链接</mark>'));
+    $IndexLinksSort = new Typecho_Widget_Helper_Form_Element_Text('IndexLinksSort', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">17.</span>要显示在首页侧边栏的链接分类（支持多分类，请用英文逗号“,”分隔）'), _t('若只需显示某分类下的链接，请输入链接分类名（建议使用字母形式的分类名），<mark>留空则默认显示全部链接列表中的链接</mark>'));
     $form->addInput($IndexLinksSort);
 
-    $Links = new Typecho_Widget_Helper_Form_Element_Textarea('Links', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">22.</span>首页链接列表（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入链接信息，格式：<strong>1链接分类*,2链接名称*,3链接地址*,4链接描述</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>myself,小宇博客,https://kisxy.com,没有什么会永垂不朽</mark></strong><br>链接分类用于过滤要显示的链接，建议使用英文！'));
+    $Links = new Typecho_Widget_Helper_Form_Element_Textarea('Links', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">18.</span>首页链接列表（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入链接信息，格式：<strong>1链接分类*,2链接名称*,3链接地址*,4链接描述</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>myself,小宇博客,https://kisxy.com,没有什么会永垂不朽</mark></strong><br>链接分类用于过滤要显示的链接，建议使用英文！'));
     $Links->input->setAttribute('style', 'height:100px;resize:both;');
     $form->addInput($Links);
 
-    $innerlinkshow = new Typecho_Widget_Helper_Form_Element_Textarea('innerlinkshow', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">23.</span>要在内页（链接页面）显示的链接分类（支持多分类，一行一个）【 必填 】'), _t(''));
+    $innerlinkshow = new Typecho_Widget_Helper_Form_Element_Textarea('innerlinkshow', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">19.</span>要在内页（链接页面）显示的链接分类（支持多分类，一行一个）【 必填 】'), _t(''));
     $innerlinkshow->input->setAttribute('style', 'height:100px;resize:both;');
     $form->addInput($innerlinkshow);
 
-    $innerlinks = new Typecho_Widget_Helper_Form_Element_Textarea('innerlinks', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">24.</span>内页页面链接列表，一行一个（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入链接信息，格式：<strong>1链接分类*,2链接名称*,3链接地址*,4链接描述,5可选参数0</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>myself,小宇博客,https://kisxy.com,没有什么会永垂不朽</mark></strong><br>若要使用rel="external nofollow"属性，第五个参数请输入0！例如：<br><strong><mark>myself,小宇博客,https://kisxy.com,没有什么会永垂不朽,0</mark></strong>'));
+    $innerlinks = new Typecho_Widget_Helper_Form_Element_Textarea('innerlinks', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">20.</span>内页页面链接列表，一行一个（注意：切换主题会被清空，注意备份！）'), _t('按照格式输入链接信息，格式：<strong>1链接分类*,2链接名称*,3链接地址*,4链接描述,5可选参数0</strong><br>不同信息之间用英文逗号“,”分隔，例如：<br><strong><mark>myself,小宇博客,https://kisxy.com,没有什么会永垂不朽</mark></strong><br>若要使用rel="external nofollow"属性，第五个参数请输入0！例如：<br><strong><mark>myself,小宇博客,https://kisxy.com,没有什么会永垂不朽,0</mark></strong>'));
     $innerlinks->input->setAttribute('style', 'height:500px;resize:both;');
     $form->addInput($innerlinks);
 
-    $postdefaultimg = new Typecho_Widget_Helper_Form_Element_Text('postdefaultimg', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">25.</span>文章头部默认图片'), _t('填写图片地址，推荐分辨率2000*500px'));
+    $postdefaultimg = new Typecho_Widget_Helper_Form_Element_Text('postdefaultimg', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">21.</span>文章头部默认图片'), _t('填写图片地址，推荐分辨率2000*500px'));
     $form->addInput($postdefaultimg);
-    $postdefaultword = new Typecho_Widget_Helper_Form_Element_Text('postdefaultword', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">26.</span>文章头部默认文字'), _t(''));
+    $postdefaultword = new Typecho_Widget_Helper_Form_Element_Text('postdefaultword', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">22.</span>文章头部默认文字'), _t(''));
     $form->addInput($postdefaultword);
 
-    $loadingPic = new Typecho_Widget_Helper_Form_Element_Text('loadingPic', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">27.</span>懒加载动态loading.gif图片地址！'), _t(''));
+    $loadingPic = new Typecho_Widget_Helper_Form_Element_Text('loadingPic', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">23.</span>懒加载动态loading.gif图片地址！'), _t(''));
     $form->addInput($loadingPic);
 
-    $commentAuthorAvatar = new Typecho_Widget_Helper_Form_Element_Text('commentAuthorAvatar', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">28.</span>自定义博主评论头像地址'), _t(''));
+    $commentAuthorAvatar = new Typecho_Widget_Helper_Form_Element_Text('commentAuthorAvatar', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">24.</span>自定义博主评论头像地址'), _t(''));
     $form->addInput($commentAuthorAvatar);
 
-    $beianno = new Typecho_Widget_Helper_Form_Element_Text('beianno', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">29.</span>网站底部备案号填写'), _t(''));
+    $beianno = new Typecho_Widget_Helper_Form_Element_Text('beianno', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">25.</span>网站底部备案号填写'), _t(''));
     $form->addInput($beianno);
 
     $posCopy = new Typecho_Widget_Helper_Form_Element_Checkbox('posCopy', 
     array('closeCopy' => _t('关闭文章底部版权信息说明！')),
-    array(''), _t('<span style="color:#ff0000;margin-right:0px;">30.</span>文章版权说明'));
+    array(''), _t('<span style="color:#ff0000;margin-right:0px;">26.</span>文章版权说明'));
     $form->addInput($posCopy->multiMode());
 
-    $postCopyright = new Typecho_Widget_Helper_Form_Element_Textarea('postCopyright', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">31.</span>文章底部自定义版权信息（支持HTML代码）'), _t('留空则显示主题定义的默认版权信息！'));
+    $postCopyright = new Typecho_Widget_Helper_Form_Element_Textarea('postCopyright', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">27.</span>文章底部自定义版权信息（支持HTML代码）'), _t('留空则显示主题定义的默认版权信息！'));
     $postCopyright->input->setAttribute('style', 'height:100px;resize:both;');
     $form->addInput($postCopyright);
 
     $themeCopy = new Typecho_Widget_Helper_Form_Element_Checkbox('themeCopy', 
     array('closeThemeCopy' => _t('关闭网站底部的主题版权说明！')),
-    array(''), _t('<span style="color:#ff0000;margin-right:0px;">32.</span>主题版权说明'));
+    array(''), _t('<span style="color:#ff0000;margin-right:0px;">28.</span>主题版权说明'));
     $form->addInput($themeCopy->multiMode());
 
-    $tongji = new Typecho_Widget_Helper_Form_Element_Textarea('tongji', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">33.</span>网站统计代码'), _t(''));
+    $tongji = new Typecho_Widget_Helper_Form_Element_Textarea('tongji', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">29.</span>网站统计代码'), _t(''));
     $tongji->input->setAttribute('style', 'height:100px;resize:both;');
     $form->addInput($tongji);
 
-    $bdAutoPush = new Typecho_Widget_Helper_Form_Element_Textarea('bdAutoPush', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">34.</span>百度自动推送工具代码'), _t('使用方式请查阅：https://ziyuan.baidu.com/linksubmit/index'));
+    $bdAutoPush = new Typecho_Widget_Helper_Form_Element_Textarea('bdAutoPush', NULL, NULL, _t('<span style="color:#ff0000;margin-right:0px;">30.</span>百度自动推送工具代码'), _t('使用方式请查阅：https://ziyuan.baidu.com/linksubmit/index'));
     $bdAutoPush->input->setAttribute('style', 'height:100px;resize:both;');
     $form->addInput($bdAutoPush);
 
     $sidebarCategory = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarCategory', 
     array('onTopNav' => _t('在顶部菜单栏显示（PC端）'),
     'onSidebar' => _t('在侧边栏显示')),
-    array(''), _t('<span style="color:#ff0000;margin-right:0px;">35.</span>分类目录'));
+    array(''), _t('<span style="color:#ff0000;margin-right:0px;">31.</span>分类目录'));
     $form->addInput($sidebarCategory->multiMode());
 
     $highlightColor = new Typecho_Widget_Helper_Form_Element_Radio('highlightColor', 
@@ -137,18 +125,18 @@ function themeConfig($form) {
     'vs' => _t('vs'),
     'github' => _t('github'),
     'atom-one-light' => _t('atom-one-light')),
-    'default', _t('<span style="color:#ff0000;margin-right:0px;">36.</span>选择代码高亮配色方案，默认为default方案！'), _t('配色效果参考：https://highlightjs.org/static/demo/'));
+    'default', _t('<span style="color:#ff0000;margin-right:0px;">32.</span>选择代码高亮配色方案，默认为default方案！'), _t('配色效果参考：https://highlightjs.org/static/demo/'));
     $form->addInput($highlightColor);
 
     $showPostAlbum = new Typecho_Widget_Helper_Form_Element_Checkbox('showPostAlbum',
     array('close' => _t('关闭文章列表的封面形式！')),
-    array(''), _t('<span style="color:#ff0000;margin-right:0px;">37.</span>文章中图片若超过3张时，在列表中将会以封面形式显示该篇文章，勾选此项则关闭，将以正常缩略图方式显示！'));
+    array(''), _t('<span style="color:#ff0000;margin-right:0px;">33.</span>文章中图片若超过3张时，在列表中将会以封面形式显示该篇文章，勾选此项则关闭，将以正常缩略图方式显示！'));
     $form->addInput($showPostAlbum->multiMode());
 
-    $ShowTimeline = new Typecho_Widget_Helper_Form_Element_Checkbox('ShowTimeline', array('sidebarTimeline' => _t('侧边栏调用时间轴第一篇文章')), NULL, _t('<span style="color:#ff0000;margin-right:0px;">38.</span>勾选后侧边栏第一个位置将显示时间轴第一篇文章内容'));
+    $ShowTimeline = new Typecho_Widget_Helper_Form_Element_Checkbox('ShowTimeline', array('sidebarTimeline' => _t('侧边栏调用时间轴第一篇文章')), NULL, _t('<span style="color:#ff0000;margin-right:0px;">34.</span>勾选后侧边栏第一个位置将显示时间轴第一篇文章内容'));
     $form->addInput($ShowTimeline->multiMode());
 
-    $SimpleHomeOn = new Typecho_Widget_Helper_Form_Element_Checkbox('SimpleHomeOn', array('simpleHome' => _t('开启首页简洁模式')), NULL, _t('<span style="color:#ff0000;margin-right:0px;">39.</span>勾选后首页将只显示时间轴的第一篇文章的内容，作为简洁模式！勾选前请确认已添加了时间轴分类并已经有发布了相应的内容！'));
+    $SimpleHomeOn = new Typecho_Widget_Helper_Form_Element_Checkbox('SimpleHomeOn', array('simpleHome' => _t('开启首页简洁模式')), NULL, _t('<span style="color:#ff0000;margin-right:0px;">35.</span>勾选后首页将只显示时间轴的最新一篇文章的内容，作为简洁模式！勾选前请确认已添加了时间轴分类并已经有发布了相应的内容！'));
     $form->addInput($SimpleHomeOn->multiMode());
 
     include("theme_config.php");
@@ -294,12 +282,18 @@ function SlideImg($classifys = NULL) {
                                 <h3><a href="'.$posturl.'">'.$title.'</a></h3>
                             </div>';
                 } else {
+                    if ($classify == "all") {
+                        echo '<div class="section" style="background-image: url('.$imgurl.');">
+                                <h3><a href="'.$posturl.'">'.$title.'</a></h3>
+                            </div>';
+                    }
                     $arr2 = explode(",", $classifys);
                     for($i = 0; $i < count($arr2); $i++) {
                         if($arr2[$i] === $classify) {
                             echo '<div class="section" style="background-image: url('.$imgurl.');">
                                 <h3><a href="'.$posturl.'">'.$title.'</a></h3>
                             </div>';
+
                         }
                     }
                 }

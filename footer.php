@@ -71,7 +71,7 @@ function f_masonry() {
 <?php endif; ?>
 <!-- 头部全屏轮播调用 -->
 <?php if(!($this->is('post') || $this->is('page'))): ?>
-<?php if (!empty($this->options->slideImages) && in_array('ShowSlideOn', $this->options->slideImages) && !($this->is('category') && $this->category == 'timeline')): ?>
+<?php if (!empty($this->options->slideImages) && in_array('ShowSlideOn', $this->options->slideImages)): ?>
 <script type="text/javascript" src="<?php $this->options->themeUrl('/js/pageSwitch.min.js'); ?>"></script>
 <script>
     a=new pageSwitch('sections',{
@@ -85,7 +85,7 @@ function f_masonry() {
     mouse:false,
     mousewheel:false,
     arrowkey:true,
-    interval:5000
+    interval:3000
 });
 navs=document.getElementById('navs').getElementsByTagName('a');
 a.on('before',function(m,n){

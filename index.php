@@ -68,8 +68,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             opacity: 1;
         }
     </style>
-
-    <?php if (!empty($this->options->ShowTimeline) && in_array('sidebarTimeline', $this->options->ShowTimeline)): ?>
     <?php
     $this->widget('Widget_Archive@index', 'pageSize=1&type=category', 'slug=timeline')->to($timeline);
     while($timeline->next()): ?>
@@ -78,8 +76,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <p><a class="simple_home_a" href="<?php $this->widget('Widget_Metas_Category_List')->to($categorys); ?><?php while($categorys->next()): ?><?php $getCateName =  $categorys->slug; if($getCateName == 'timeline'): ?><?php echo $categorys->permalink; ?><?php endif; ?><?php endwhile; ?>" title="进入网站...">--- Enter ---</a></p>
         </div>
     <?php endwhile; ?>
-    <?php endif; ?>
-
 <?php else: ?>
 <div class="site-wrap">
     <div class="flex-left">
