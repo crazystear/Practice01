@@ -4,7 +4,7 @@
  * 
  * @package practice01
  * @author 小宇
- * @version 1.0.6
+ * @version 20200515
  * @link https://kisxy.com
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
