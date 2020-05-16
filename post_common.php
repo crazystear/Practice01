@@ -3,7 +3,7 @@
 <?php
     preg_match_all("/\<img.*?src\=(\'|\")(.*?)(\'|\")[^>]*>/i", $this->content, $matches);
     $imgCount = count($matches[0]);
-    if (($imgCount >= 4 || $this->fields->postGallery == 'isGallery') && empty($this->options->showPostAlbum)) { ?>
+    if (($imgCount >= 4) && empty($this->options->showPostAlbum)) { ?>
 <div onclick="window.open('<?php $this->permalink() ?>','_self')" class="lazyload act2" data-original="<?php if (!($this->fields->thumbimg == '')): ?><?php $this->fields->thumbimg(); ?><?php else: ?><?php
 preg_match_all("/\<img.*?src\=(\'|\")(.*?)(\'|\")[^>]*>/i", $this->content, $matches);
 $imgCount = count($matches[0]);

@@ -194,8 +194,8 @@ function themeFields($layout)
         $posttitlecolor->input->setAttribute('class', 'w-100');
         $layout->addItem($posttitlecolor);
 
-        $postGallery = new Typecho_Widget_Helper_Form_Element_Radio('postGallery', array('isGallery' => _t('文章设置为相册'), 'noGallery' => _t('普通文章形式')), 'noGallery', _t('设置为相册形式'), _t('默认为普通文章形式。相册模式直接文章中输入图片地址，每行地址前需要添加一个反斜杠“\”，一行一个地址。'));
-        $layout->addItem($postGallery);
+        // $postGallery = new Typecho_Widget_Helper_Form_Element_Radio('postGallery', array('isGallery' => _t('文章设置为相册'), 'noGallery' => _t('普通文章形式')), 'noGallery', _t('设置为相册形式'), _t('默认为普通文章形式。相册模式直接文章中输入图片地址，每行地址前需要添加一个反斜杠“\”，一行一个地址。'));
+        // $layout->addItem($postGallery);
 
         $aplayerurl = new Typecho_Widget_Helper_Form_Element_Text('aplayerurl', NULL, NULL, _t('歌曲URL地址'), _t('输入可以在线播放的音乐URL地址'));
         $aplayerurl->input->setAttribute('class', 'w-100');
