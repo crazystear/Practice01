@@ -93,9 +93,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             left: 20px;
             margin-left: 0;
         }
-        .content {
-            margin-top: 40px;
-        }
         .tl_left {
             padding: 0 30px 0 40px;
             margin-bottom: 40px;

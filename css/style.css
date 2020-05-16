@@ -185,7 +185,8 @@ iframe {
 	font-family: Roboto,"Open Sans","Microsoft YaHei","Helvetica Neue",Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 .headlogo a {
-	font-size: 18px;
+	font-size: 26px;
+	font-family: '华文行楷', "LingWai TC";
 }
 .intopsearch {
 	margin: 0 auto;
@@ -1550,6 +1551,7 @@ p#showAvatar {
 	}
 	.section h3 {
 		top: 130px;
+		font-size: 20px;
 	}
 	.section p {
 		top: 140px;
