@@ -130,12 +130,17 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <div class="inside">
                 <div id="content" class="content">
                     <?php while($this->next()): ?>
+                        <?php
+                            preg_match_all('/(http:|https:)(.*?)(.jpg|.png|.gif|.jpeg)/i', $this->content, $inpostImgMatch);
+                            $countInnerImg = count($inpostImgMatch[0]);
+                        ?>
                         <div class="main_gallery main2">
                             <div class="act act_gallery">
                                 <article class="main-act">
                                     <div onclick="window.open('<?php $this->permalink() ?>','_self')" class="box">
                                         <a class="header" href="<?php $this->permalink() ?>">
-                                            <img class="lazyload" src="<?php $this->options->loadingPic(); ?>" data-original="<?php $this->fields->thumbimg(); ?>">
+                                            <img class="lazyload" src="<?php $this->options->loadingPic(); ?>" data-original="<?php 
+                                            if(!($this->fields->thumbimg == '')) { $this->fields->thumbimg(); }else{ echo $inpostImgMatch[0][0]; } ?>">
                                         </a>
                                         <div class="box-content">
                                             <div class="content1 setback">
@@ -148,11 +153,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                                 </div>
                                             </div>
                                             <div class="content2">
-                                                <span class="post"><?php $this->title() ?><span style="font-size: 12px;">【<?php
-                                                        preg_match_all('/(http:|https:)(.*?)(.jpg|.png|.gif|.jpeg)/i', $this->content, $inpostImgMatch);
-                                                        $countInnerImg = count($inpostImgMatch[0]);
-                                                        echo $countInnerImg.'P';
-                                                    ?>】</span></span>
+                                                <span class="post"><?php $this->title() ?><span style="font-size: 12px;">【
+                                                    <?php echo $countInnerImg.'P'; ?>】
+                                                </span></span>
                                             </div>
                                         </div>
                                     </div>
