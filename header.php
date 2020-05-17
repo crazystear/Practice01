@@ -126,7 +126,7 @@
         <div class="imgslide-container" style="opacity: 0;">
             <div id="container">
                 <div class="sections" id="sections">
-            <?php if($this->is('index')): ?>
+            <?php if($this->is('index') || $this->is('search')): ?>
                     <?php SlideImg('home'); ?>
                 </div>
             <?php endif; ?>
